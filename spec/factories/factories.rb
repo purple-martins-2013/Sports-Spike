@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :event do
     sequence(:name) { |n| "Event #{n}" }
-    sequence(:date) { |n| Date.today + n }
+    sequence(:date) { |n| Datetime.today + n }
 
     factory :event_with_spikes do
       ignore do
