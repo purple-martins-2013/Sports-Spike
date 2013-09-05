@@ -1,3 +1,4 @@
 SportsSpike::Application.routes.draw do
-  resources :spikes, only: [:index]
+  root 'events#index'
+  resources :events, only: [:index]
 end

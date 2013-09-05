@@ -1,2 +1,0 @@
-class SpikesController < ApplicationController
-end
