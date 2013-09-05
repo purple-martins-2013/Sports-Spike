@@ -4,6 +4,7 @@ describe Spike do
 
   it { should validate_presence_of(:peak_velocity) }
   it { should validate_presence_of(:date_time) }
+  # TODO : test presence of event association
   it { should belong_to (:event) }
 
   describe 'with valid information' do
