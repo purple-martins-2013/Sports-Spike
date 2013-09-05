@@ -1,0 +1,2 @@
+class SpikesController < ApplicationController
+end
