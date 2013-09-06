@@ -1,8 +1,8 @@
 
 task :watch_twitter => :environment do
-  
+
 store = TweetStore.new
-TweetStream::Client.new.track('#broncos') do |status|
+TweetStream::Client.new.track('#broncos', '#ravens') do |status|
   if status.text
     p status[:id]
     store.push(

@@ -1,6 +1,7 @@
 <p>If you can see me, you've arrived at the tweets index </p>
+<%= @trim_count %>
 <ul>
 <% @tweets.each do |tweet| %>
-  <li> <%=tweet.text%></li>
+  <li> <%=tweet%></li>
   <%end%>
 </ul>
