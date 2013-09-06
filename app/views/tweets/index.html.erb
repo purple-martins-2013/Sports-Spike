@@ -1,7 +1,8 @@
 <p>If you can see me, you've arrived at the tweets index </p>
-<%= @trim_count %>
+<%= @time.to_i %> seconds have passed since the last 100 tweets mentioning the Denver Baltimore game!
 <ul>
-  <% @redistrip.each do |trip| %>
+  Trip objects we're recording:
+  <% @redis_trip.each do |trip| %>
   <li> <%=trip.time %></li>
   <%end%>
   

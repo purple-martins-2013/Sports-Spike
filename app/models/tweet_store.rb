@@ -26,7 +26,9 @@ class TweetStore
     @trim_count += 1
     p @trim_count
     if (@trim_count > TRIM_THRESHOLD)
+      p RedisTrip.test
       RedisTrip.create(time: Time.now)
+      p RedisTrip.test
       @db.LTRIM(REDIS_KEY, 0, NUM_TWEETS)
       @trim_count = 0
     end
