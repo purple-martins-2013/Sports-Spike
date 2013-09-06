@@ -1,6 +1,7 @@
 SportsSpike::Application.routes.draw do
 
-  root 'tweets#index'
+  root 'events#index'
   resources :events, only: [:index]
+  resources :tweets, only: [:index]
 
 end
