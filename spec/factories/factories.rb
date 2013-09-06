@@ -21,4 +21,8 @@ FactoryGirl.define do
     peak_velocity { rand(100) * 10 }
     event
   end
+
+  factory :redis_trip do
+    sequence(:time) { |n| Time.now + n * 1000}
+  end
 end
