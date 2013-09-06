@@ -1,13 +1,13 @@
 <div class='event-list'>
   <ul>
     <% @events.each do |event| %>
-      <li><%= event.name %> || <small><%= event.date %></small>
-        <ul>
-          <% event.spikes.each do |spike| %>
-            <li>Time of Spike: <%= spike.date_time %> || Spike Velocity: <%= spike.peak_velocity %></li>
-          <% end %>
-        </ul>
-      </li>
+    <li><%= event.name %> || <small><%= event.date %></small>
+      <ul>
+        <% event.spikes.each do |spike| %>
+        <li>Time of Spike: <%= spike.date_time %> || Spike Velocity: <%= spike.peak_velocity %></li>
+        <% end %>
+      </ul>     
+    </li>
     <% end %>
   </ul>
 </div>
