@@ -15,4 +15,19 @@ describe Spike do
     end
   end
 
+  describe 'Spike#time_since_game_start' do
+    time = Time.now
+    let!(:spike) { create :spike, date_time: time + 100}
+    
+    before do
+      spike.event.date = time
+      spike.event.save
+    end
+
+    it 'should return the correct time in seconds' do
+      expect(spike.date_time.time - spike.event.date.time).to eq 100
+    end
+
+  end
+
 end
