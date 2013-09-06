@@ -1,7 +1,8 @@
 <p>If you can see me, you've arrived at the tweets index </p>
 <%= @trim_count %>
 <ul>
-<% @tweets.each do |tweet| %>
-  <li> <%=tweet%></li>
+  <% @redistrip.each do |trip| %>
+  <li> <%=trip.time %></li>
   <%end%>
+  
 </ul>

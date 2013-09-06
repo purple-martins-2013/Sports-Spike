@@ -24,6 +24,7 @@ class TweetStore
     @db.LPUSH(REDIS_KEY, data.to_json)
 
     @trim_count += 1
+    p @trim_count
     if (@trim_count > TRIM_THRESHOLD)
       RedisTrip.create(time: Time.now)
       @db.LTRIM(REDIS_KEY, 0, NUM_TWEETS)
