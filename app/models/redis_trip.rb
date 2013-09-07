@@ -1,4 +1,5 @@
 class RedisTrip < ActiveRecord::Base
+  acts_as_reportable
   #TODO: Why can't I do this with a class variable?
   # @@redis_trip_cache = []
   @@uneventful_period_interval = 1000 # Hardcoded number of seconds between RedisTrips during uneventful periods of a game.
