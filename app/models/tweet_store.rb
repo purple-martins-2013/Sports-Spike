@@ -8,10 +8,10 @@ class TweetStore
   REDIS_KEY = 'redis_tweets'
 
   def initialize
-    @db = Redis.new
     @tweet_count = 0
-    @start_time = Time.new
     @interval = 60
+    @db = REDIS
+    @trim_count = 0
   end
 
   def count_reset
