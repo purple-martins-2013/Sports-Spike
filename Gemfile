@@ -9,6 +9,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'redis-rails' 
 gem 'tweetstream'
+gem 'ruport'
+gem 'acts_as_reportable'
 
 group :test, :development do
   gem 'rspec-rails'

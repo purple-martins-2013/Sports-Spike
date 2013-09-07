@@ -1,7 +1,7 @@
 
 task :watch_twitter => :environment do
   store = TweetStore.new
-  TweetStream::Client.new.track('#music') do |status|
+  TweetStream::Client.new.track('#hoos','#ducks') do |status|
     if status
       
        Tweet.create(
