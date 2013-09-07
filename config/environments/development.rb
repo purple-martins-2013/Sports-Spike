@@ -28,4 +28,3 @@ SportsSpike::Application.configure do
   config.assets.debug = true
 
 end
-  ENV["REDISTOGO_URL"] = 'redis://redistogo:91bc233362f01799527a5f0c9c30859c@koi.redistogo.com:9898/'
