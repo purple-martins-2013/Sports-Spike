@@ -10,8 +10,8 @@ class TweetStore
   def initialize
     @tweet_count = 0
     @interval = 60
+    @start_time = Time.new
     @db = REDIS
-    @trim_count = 0
   end
 
   def count_reset
