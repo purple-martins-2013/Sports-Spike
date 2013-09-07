@@ -10,8 +10,7 @@ class TweetStore
   TRIM_THRESHOLD = 100
 
   def initialize
-    uri = URI.parse(ENV["REDISTOGO_URL"])
-    @db = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+    @db = REDIS
     @trim_count = 0
   end
 
