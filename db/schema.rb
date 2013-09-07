@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20130907224936) do
     t.integer  "tweet_id"
     t.string   "text"
     t.string   "username"
-    t.integer  "userid"
+    t.integer  "user_id"
     t.string   "received_at"
     t.datetime "created_at"
     t.datetime "updated_at"
