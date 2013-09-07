@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130907204040) do
+ActiveRecord::Schema.define(version: 20130907224936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20130907204040) do
   create_table "redis_trips", force: true do |t|
     t.datetime "time"
     t.integer  "tweet_count"
+    t.time     "timestamps"
   end
 
   create_table "spikes", force: true do |t|
