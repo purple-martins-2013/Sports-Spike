@@ -1,4 +1,4 @@
-class ChangeEventDateFormatToDateTime < ActiveRecord::Migration
+class ChangeEventDateFormatToDatetime < ActiveRecord::Migration
   def change
     change_column :events, :date, :datetime
   end
