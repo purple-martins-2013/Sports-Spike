@@ -6,6 +6,7 @@ gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 gem 'redis-rails' 
 gem 'tweetstream'
+gem 'redis'
 
 group :test, :development do
   gem 'rspec-rails'

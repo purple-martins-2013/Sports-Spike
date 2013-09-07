@@ -26,4 +26,6 @@ SportsSpike::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:91bc233362f01799527a5f0c9c30859c@koi.redistogo.com:9898/'
 end

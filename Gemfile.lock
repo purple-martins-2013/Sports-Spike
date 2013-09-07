@@ -153,6 +153,7 @@ DEPENDENCIES
   factory_girl_rails
   pg
   rails (= 4.0.0)
+  redis
   redis-rails
   rspec-rails
   shoulda-matchers
