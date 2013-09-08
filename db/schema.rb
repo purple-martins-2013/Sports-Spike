@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130907224853) do
+ActiveRecord::Schema.define(version: 20130907231233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,10 @@ ActiveRecord::Schema.define(version: 20130907224853) do
     t.datetime "time"
     t.integer  "short_ema"
     t.integer  "long_ema"
-    t.integer  "macd_ema"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "macd"
+    t.integer  "signal_line"
   end
 
   create_table "spikes", force: true do |t|
