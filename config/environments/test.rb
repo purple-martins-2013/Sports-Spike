@@ -34,3 +34,4 @@ SportsSpike::Application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 end
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:91bc233362f01799527a5f0c9c30859c@koi.redistogo.com:9898/'
