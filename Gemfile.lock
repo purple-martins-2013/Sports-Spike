@@ -169,8 +169,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  chronic
   acts_as_reportable
+  chronic
   factory_girl_rails
   pg
   rails (= 4.0.0)
