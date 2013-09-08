@@ -31,6 +31,7 @@ GEM
     arel (4.0.0)
     atomic (1.1.13)
     builder (3.1.4)
+    chronic (0.10.1)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -168,6 +169,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  chronic
   acts_as_reportable
   factory_girl_rails
   pg
