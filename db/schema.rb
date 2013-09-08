@@ -21,10 +21,6 @@ ActiveRecord::Schema.define(version: 20130907231233) do
     t.datetime "date"
   end
 
-  create_table "search_terms", force: true do |t|
-    t.string "term"
-  end
-
   create_table "redis_trips", force: true do |t|
     t.datetime "time"
     t.integer  "short_ema"
@@ -34,6 +30,10 @@ ActiveRecord::Schema.define(version: 20130907231233) do
     t.integer  "macd"
     t.integer  "signal_line"
     t.integer  "tweet_count"
+  end
+
+  create_table "search_terms", force: true do |t|
+    t.string "term"
   end
 
   create_table "spikes", force: true do |t|

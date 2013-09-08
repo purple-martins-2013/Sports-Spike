@@ -174,8 +174,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  chronic
   acts_as_reportable
+  chronic
   factory_girl_rails
   jasmine-rails
   pg
