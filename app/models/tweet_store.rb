@@ -10,7 +10,7 @@ class TweetStore
   TRIM_THRESHOLD = 100
 
   def initialize
-    @db = Redis.new
+    @db = REDIS
     @trim_count = 0
   end
 
