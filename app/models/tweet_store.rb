@@ -3,34 +3,37 @@ require 'redis'
 require 'tweetstream'
 
 class TweetStore
-  attr_reader :trim_count
+  attr_reader :tweet_count
 
-  REDIS_KEY = 'tweets'
-  NUM_TWEETS = 0
-  TRIM_THRESHOLD = 100
+  REDIS_KEY = 'redis_tweets'
 
   def initialize
+    @tweet_count = 0
+    @interval = 60
+    @start_time = Time.new
     @db = REDIS
-    @trim_count = 0
   end
 
-  def tweets(limit=100, since=0)
-    @db.LRANGE(REDIS_KEY, 0, limit -1).collect {|t|
-        (JSON.parse(t))
-      }
+  def count_reset
+    @tweet_count = 0
+  end
+
+  def inc_tweet_count
+    @tweet_count += 1
+  end
+
+  def time_reset
+    @start_time = Time.new
   end
 
   def push(data)
     @db.LPUSH(REDIS_KEY, data.to_json)
-
-    @trim_count += 1
-    p @trim_count
-    if (@trim_count > TRIM_THRESHOLD)
-      p RedisTrip.test
-      RedisTrip.create(time: Time.now)
-      p RedisTrip.test
-      @db.LTRIM(REDIS_KEY, 0, NUM_TWEETS)
-      @trim_count = 0
+    inc_tweet_count
+    if (Time.now - @start_time >= @interval)
+      RedisTrip.create(time: Time.now, tweet_count: @tweet_count)
+      count_reset
+      time_reset
     end
+     p @tweet_count
   end
 end

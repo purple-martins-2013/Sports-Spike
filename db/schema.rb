@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130906013856) do
+ActiveRecord::Schema.define(version: 20130907224936) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -20,6 +23,8 @@ ActiveRecord::Schema.define(version: 20130906013856) do
 
   create_table "redis_trips", force: true do |t|
     t.datetime "time"
+    t.integer  "tweet_count"
+    t.time     "timestamps"
   end
 
   create_table "spikes", force: true do |t|
@@ -28,6 +33,16 @@ ActiveRecord::Schema.define(version: 20130906013856) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "event_id"
+  end
+
+  create_table "tweets", force: true do |t|
+    t.integer  "tweet_id"
+    t.string   "text"
+    t.string   "username"
+    t.integer  "user_id"
+    t.string   "received_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
