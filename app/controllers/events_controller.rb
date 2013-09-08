@@ -4,7 +4,11 @@ class EventsController < ApplicationController
   end
 
   def index
-    render json: Event.all
+    render json: Event.includes(:spikes)
   end
+
+  # def show
+  #   render json: Event.find(params[:id]).includes(:spikes)
+  # end
 
 end

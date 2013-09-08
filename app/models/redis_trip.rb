@@ -45,7 +45,7 @@ class RedisTrip < ActiveRecord::Base
 
   def calculate_signal_line
     if RedisTrip.all.size >= SIGNAL_LINE_PERIOD + 1
-      self.signal_line = RedisTrip.order('created_at DESC').limit(3).pluck('macd').inject(:+) / SIGNAL_LINE_PERIOD 
+      self.signal_line = RedisTrip.order('created_at DESC').limit(SIGNAL_LINE_PERIOD).pluck('macd').inject(:+) / SIGNAL_LINE_PERIOD 
     else
       sc = smoothing_constant(SIGNAL_LINE_PERIOD)
       last_signal_line = RedisTrip.order('created_at DESC').first.signal_line
