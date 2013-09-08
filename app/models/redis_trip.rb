@@ -36,6 +36,7 @@ class RedisTrip < ActiveRecord::Base
 
   def calculate_macd
     self.macd = self.short_ema - self.long_ema
+    self.save
   end
 
   def calculate_signal_line
@@ -43,6 +44,7 @@ class RedisTrip < ActiveRecord::Base
     sc = smoothing_constant(SIGNAL_LINE_PERIOD)
     last_signal_line = RedisTrip.order('created_at DESC').first.signal_line
     self.signal_line = last_signal_line + sc * ( self.macd - last_signal_line )
+    self.save
   end
 
   def smoothing_constant(n)  #extract to helper
