@@ -1,8 +1,10 @@
-class Tweet
+class Tweet <ActiveRecord::Base
+  acts_as_reportable
   
-  def initialize(data)
-    @data = data
-  end
+ def index
+  @data = data
+ end
 
+ 
 
 end

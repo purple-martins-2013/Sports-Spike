@@ -1,4 +1,6 @@
 class RedisTrip < ActiveRecord::Base
+  acts_as_reportable
+
   SIGNAL_LINE_PERIOD = 3
   SHORT_EMA_PERIOD = 5
   LONG_EMA_PERIOD = 10
@@ -46,5 +48,4 @@ class RedisTrip < ActiveRecord::Base
   def smoothing_constant(n)  #extract to helper
     2.0 / (n + 1)
   end
-
 end
