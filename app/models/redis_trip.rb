@@ -8,8 +8,6 @@ class RedisTrip < ActiveRecord::Base
   SHORT_EMA_PERIOD = 4
   LONG_EMA_PERIOD = 8
 
-  validates :time, presence: true
-
   before_create :populate_algorithm_fields
 
   # TODO: CLEAN UP THIS UGLY CODE~!!!!!!!

@@ -23,10 +23,12 @@ class TweetStore
   def check_timer
     if (Time.now - @start_time >= @interval)
       @search_terms.each do |term|
-        redis_trip = RedisTrip.create(search_term: term, tweet_count: @db.LLEN(term.hashtag))
-        redis_trip.spike.create if redis_trip.histogram > INTERESTING_MOMENT
+        redis_trip = RedisTrip.create(search_term_id: term.id, tweet_count: @db.LLEN(term.hashtag))
+        unless redis_trip.histogram.nil?
+          redis_trip.spike.create if redis_trip.histogram > INTERESTING_MOMENT
+        end
       end
-      @db.expire("#{something_else}", 0)
+      @db.flushall
       time_reset
     end 
   end
