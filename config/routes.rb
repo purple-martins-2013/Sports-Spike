@@ -1,6 +1,6 @@
 SportsSpike::Application.routes.draw do
 
-  root 'events#app'
+  root 'events#index'
   resources :events, only: [:index]
   resources :redis_trips, only: [:index]
 
