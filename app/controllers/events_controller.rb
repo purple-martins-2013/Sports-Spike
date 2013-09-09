@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   end
 
   def index
-    render json: Event.includes(:spikes)
+    @events = Event.all
+    render json: @events.to_json(:include => :spikes)
   end
 
   # def show

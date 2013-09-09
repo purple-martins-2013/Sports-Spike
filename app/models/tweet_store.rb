@@ -1,3 +1,5 @@
+# This really feels like a controller to me, not a model
+
 require 'json'
 require 'redis'
 require 'tweetstream'
@@ -30,9 +32,11 @@ class TweetStore
     @db.LPUSH(REDIS_KEY, data.to_json)
     inc_tweet_count
     if (Time.now - @start_time >= @interval)
-      RedisTrip.create(time: Time.now, tweet_count: @tweet_count)
+      redis_trip = RedisTrip.create(time: Time.now, tweet_count: @tweet_count)
       count_reset
       time_reset
+      Spike.create if redis_trip.histogram > INTERESTING_MOMENT
+      @db.expire("redis_db", 0) 
     end
      p @tweet_count
   end
