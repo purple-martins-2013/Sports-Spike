@@ -1,6 +1,6 @@
-teams = SearchTerm.all
-store = TweetStore.new(teams)
 task :watch_twitter => :environment do
+  teams = SearchTerm.all
+  store = TweetStore.new(teams)
   TweetStream::Client.new.track(teams.pluck('term').join(', ')) do |status|
     puts 'TweetStream initialized successfully'
     status_tag = status.entities.hashtags
