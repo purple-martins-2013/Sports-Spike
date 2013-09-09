@@ -1,4 +1,5 @@
-<p>If you can see me, you've arrived at the tweets index </p>
+<div class='container'>
+	<p>If you can see me, you've arrived at the tweets index </p>
 <ul>
 <% @espn.each do |scores|%>
 	<li><%=scores[:league].upcase%><br>
@@ -20,3 +21,4 @@
   		<%end%>
 		</ul>
 <% end %>
+</div>
