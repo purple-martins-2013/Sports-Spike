@@ -7,13 +7,12 @@
   <%= csrf_meta_tags %>
 
 </head>
-<body>
+  <body>
 	<div class="row">
-  		  <div class="small-6 large-centered columns">6 centered</div>
-			 <%= render 'shared/header' %>
-			 <%= yield %>
+  	  <div class="small-6 large-centered columns">
+		<%= render 'shared/header' %>
+		<%= yield %>
+	  </div>
 	</div>
-
-</body>
- 
+  </body>
 </html>
