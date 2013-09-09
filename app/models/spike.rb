@@ -1,5 +1,5 @@
 class Spike < ActiveRecord::Base
-  belongs_to :event
+  belongs_to :redis_trip
   
   validates :peak_velocity, :date_time, :event, presence: true
 
