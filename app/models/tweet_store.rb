@@ -6,6 +6,8 @@ require 'tweetstream'
 
 class TweetStore
 
+  INTERESTING_MOMENT = 10
+
   def initialize(search_terms)
     @tweet_count = 0
     @interval = 30
@@ -22,7 +24,7 @@ class TweetStore
     if (Time.now - @start_time >= @interval)
       @search_terms.each do |term|
         redis_trip = RedisTrip.create(search_term: term, tweet_count: @db.LLEN(term.hashtag))
-        redis_trip.spike.create(search_term: term) if redis_trip.histogram > INTERESTING_MOMENT
+        redis_trip.spike.create if redis_trip.histogram > INTERESTING_MOMENT
       end
       @db.expire("#{something_else}", 0)
       time_reset

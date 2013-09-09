@@ -1,13 +1,15 @@
 task :watch_twitter => :environment do
   teams = SearchTerm.all
   store = TweetStore.new(teams)
-  TweetStream::Client.new.track(teams.pluck('term').join(', ')) do |status|
+  TweetStream::Client.new.track(teams.pluck('hashtag').join(', ')) do |status|
     puts 'TweetStream initialized successfully'
-    status_tag = status.entities.hashtags
-    status_tag.select! { |tag| teams.include?(tag) }
+    tags = []
+    status.hashtags.each { |tag| tags << tag.text }
+    tags.map! { |tag| "\##{tag}"}
+    tags.select! { |tag| teams.include?(tag) }
     if status
-    puts "about to call store.push"
-      store.push(status_tag)
+      puts "about to call store.push"
+      store.push(tags)
       store.check_timer
       p status[:id]
       p status.user.name
