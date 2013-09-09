@@ -1,4 +1,16 @@
 <p>If you can see me, you've arrived at the tweets index </p>
+<ul>
+<% @espn.each do |scores|%>
+	<li><%=scores[:league].upcase%><br>
+		Date:<%=scores[:game_date]%><br>
+		Home:<%=scores[:home_team].upcase%>:<%=scores[:home_score]%><br>
+		Visitors:<%=scores[:away_team].upcase%>:<%=scores[:away_score]%><br>
+		Status:<%=scores[:status]%><br>
+		<br>
+		<br>
+	<%end%>
+</ul>
+
 <% if @redis_trip.first %>
 	<%= @time.to_i %> seconds have passed since the last 100 tweets mentioning the Denver Baltimore game!
 		<ul>
