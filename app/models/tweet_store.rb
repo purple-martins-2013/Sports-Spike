@@ -9,7 +9,7 @@ class TweetStore
 
   def initialize
     @tweet_count = 0
-    @interval = 60
+    @interval = 30
     @start_time = Time.new
     @db = REDIS
   end

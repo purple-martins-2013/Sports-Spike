@@ -61,6 +61,8 @@ class RedisTrip < ActiveRecord::Base
 
   def calculate_histogram
     self.histogram = self.macd - self.signal_line
+    if self.histogram >= 10
+      Spike.create()
   end
 
   def smoothing_constant(n)  #extract to helper

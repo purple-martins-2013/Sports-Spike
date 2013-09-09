@@ -1,7 +1,7 @@
 
 task :watch_twitter => :environment do
   store = TweetStore.new
-  TweetStream::Client.new.track('#patriots','#bills','#BuffaloBills','#RealPatriots', '#newenglandpatriots','patriots','buffalobills') do |status|
+  TweetStream::Client.new.track('#Cowboys','#Giants') do |status|
     puts 'TweetStream initialized successfully'
     if status
        Tweet.create(
