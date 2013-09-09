@@ -5,39 +5,35 @@ require 'redis'
 require 'tweetstream'
 
 class TweetStore
-  attr_reader :tweet_count
 
-  REDIS_KEY = 'redis_tweets'
-
-  def initialize
+  def initialize(search_terms)
     @tweet_count = 0
     @interval = 30
+    @search_terms = search_terms
     @start_time = Time.new
     @db = REDIS
-  end
-
-  def count_reset
-    @tweet_count = 0
-  end
-
-  def inc_tweet_count
-    @tweet_count += 1
   end
 
   def time_reset
     @start_time = Time.new
   end
 
-  def push(data)
-    @db.LPUSH(REDIS_KEY, data.to_json)
-    inc_tweet_count
+  def check_timer
     if (Time.now - @start_time >= @interval)
-      redis_trip = RedisTrip.create(time: Time.now, tweet_count: @tweet_count)
-      count_reset
+      @search_terms.each do |term|
+        redis_trip = RedisTrip.create(search_term: term, tweet_count: @db.LLEN(term.hashtag))
+        redis_trip.spike.create(search_term: term) if redis_trip.histogram > INTERESTING_MOMENT
+      end
+      @db.expire("#{something_else}", 0)
       time_reset
-      Spike.create if redis_trip.histogram > INTERESTING_MOMENT
-      @db.expire("redis_db", 0) 
+    end 
+  end
+
+  def push(hashtags)
+    redis_keys = []
+    hashtags.each { |tag| redis_keys << tag }
+    redis_keys.each do |key|
+      @db.LPUSH(key, hashtags.to_json) # Can we pass in something else? 
     end
-     p @tweet_count
   end
 end
