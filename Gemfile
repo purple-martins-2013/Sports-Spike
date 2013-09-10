@@ -13,6 +13,7 @@ gem 'redis-rails'
 gem 'acts_as_reportable'
 gem 'redis'
 gem 'chart-js-rails'
+gem 'rails_12factor'
 
 group :test, :development do
   gem 'rspec-rails'
