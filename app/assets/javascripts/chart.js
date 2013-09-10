@@ -1,5 +1,13 @@
+Highcharts.setOptions({
+      global: {
+        useUTC: false
+      }
+});
+
+
 var Chart = {
-  pollTime: 61000,
+
+  pollTime: 60000,
 
   init: function() {
     this.render();
@@ -12,7 +20,13 @@ var Chart = {
   },
 
   render: function() {
-    $.get('redis_trips/render_data', Chart.draw);
+    $.get('redis_trips/render_data', function(data) {
+      var newData = [];
+      var data = $.each(data, function(k, coordinate) {
+        newData.push([Date.parse(coordinate[0]), coordinate[1]]);
+      });
+      Chart.draw(newData);
+    });
   },
 
   draw: function(data) {
@@ -24,24 +38,32 @@ var Chart = {
       title: {
         text: 'The Pulse of Patriots Nation'
       },
-
       navigator: {
-        enabled: true
+        enabled: true,
+        adaptToUpdatedData: true
+
       },
 
-      scrollBar: {
-          enabled: true,
-          liveRedraw: false
+      legend: {
+        enabled: false
       },
       xAxis: {
           type: 'datetime',
-          tickInterval: 3600 * 1000,
-          tickWidth: 0,
-          gridLineWidth: 1
+          dateTimeLabelFormats: {
+            minute: '%d<br/>%H:%M',
+            hour: '%d<br/>%H:%M',
+            day: '%m-%d',
+            week: '%m-%d',
+          }
       },
 
       series: [{
-          data: data}]
+          name: 'Tweets Per Minute',
+          data: data,
+          dataGrouping: {
+            enabled: false
+          }
+        }]
     });
   }
 }
