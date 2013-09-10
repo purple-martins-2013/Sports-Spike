@@ -6,12 +6,11 @@ task :watch_twitter => :environment do
     tags = []
     status.hashtags.each { |tag| tags << tag.text }
     tags.map! { |tag| "\##{tag}"}
-    tags.select! { |tag| teams.include?(tag) }
+    tags.select! { |tag| teams.map { |x| x.hashtag.downcase }.include?(tag.downcase) }
     if status
       puts "about to call store.push"
-      store.push(tags)
+      store.push(tags.uniq)
       store.check_timer
-      p status[:id]
       p status.user.name
     end
   end
