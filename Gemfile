@@ -10,7 +10,6 @@ gem 'compass-rails' # you need this or you get an err
 gem 'zurb-foundation', '~> 4.0.0'
 gem 'chronic'
 gem 'redis-rails'
-gem 'ruport'
 gem 'acts_as_reportable'
 gem 'redis'
 gem 'chart-js-rails'
