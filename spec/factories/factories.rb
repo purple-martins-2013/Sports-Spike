@@ -13,7 +13,7 @@ FactoryGirl.define do
       events { [create(:event)] }
 
       ignore do
-        redis_trip_count 30
+        redis_trip_count 35
       end
 
       after(:create) do |search_term, evaluator|
@@ -23,10 +23,14 @@ FactoryGirl.define do
   end
 
   factory :spike do
-    redis_trip
+    redis_trip { create(:redis_trip_with_search_term) }
   end
 
   factory :redis_trip do
-    tweet_count { rand(4) == 3 ? 400 : 50 }
+    tweet_count { rand(7) == 3 ? 400 : 50 }
+
+    factory :redis_trip_with_search_term do
+      search_term
+    end
   end
 end
