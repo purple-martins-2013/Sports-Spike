@@ -5,7 +5,7 @@ class RedisTripsController < ApplicationController
 
   def render_data
     Time.zone="US/Pacific"
-    data = RedisTrip.where(search_term_id: 2).order("created_at DESC").map do |trip|
+    data = RedisTrip.where(search_term_id: 2).limit(120).order("created_at DESC").map do |trip|
       formatted_date = trip.created_at.strftime("%Y-%m-%d %I:%M")
       [formatted_date, trip.tweet_count]
     end

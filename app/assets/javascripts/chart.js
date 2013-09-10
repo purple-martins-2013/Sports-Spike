@@ -89,7 +89,7 @@ var Chart = {
           color: 'silver',
           fontWeight: 'bold'
         },
-        selected: 1
+
       },
       
 
@@ -100,6 +100,9 @@ var Chart = {
 
       legend: {
         enabled: false
+      },
+      plotOptions: {
+        cropThreshold:10000
       },
       xAxis: {
           type: 'datetime',
@@ -112,8 +115,10 @@ var Chart = {
       },
 
       series: [{
+  
           name: 'Tweets Per Minute',
           data: data,
+          turboThreshold: 10000,
           dataGrouping: {
             enabled: false
           }
