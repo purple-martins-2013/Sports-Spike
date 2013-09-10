@@ -34,3 +34,6 @@ html, body {
   h1 {
     text-align: center;
   }
+  body {
+    padding-top: 60px;
+  }
