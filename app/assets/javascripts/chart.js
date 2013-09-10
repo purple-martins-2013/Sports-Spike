@@ -1,16 +1,45 @@
 var Chart = {
+  pollTime: 61000,
+
   init: function() {
-    $.get('redis_trips/render_data', this.renderChart);
+    this.render();
+    this.poll();
+    
   },
 
-  renderChart: function(data) {
+  poll: function() {
+    setInterval(this.render, this.pollTime)
+  },
+
+  render: function() {
+    $.get('redis_trips/render_data', Chart.draw);
+  },
+
+  draw: function(data) {
     new Highcharts.Chart({
       chart: {
-          renderTo: 'chart'
+        renderTo: 'chart'
+      },
+
+      title: {
+        text: 'The Pulse of Patriots Nation'
+      },
+
+      navigator: {
+        enabled: true
+      },
+
+      scrollBar: {
+          enabled: true,
+          liveRedraw: false
       },
       xAxis: {
-          type: 'datetime'
+          type: 'datetime',
+          tickInterval: 3600 * 1000,
+          tickWidth: 0,
+          gridLineWidth: 1
       },
+
       series: [{
           data: data}]
     });
