@@ -15,6 +15,8 @@
         <li class='name'>
           <h1><a href ='/'>SportsSpike</a></h1></li>
       </ul>
+
+
       <!-- HEADER -->
         <section class="top-bar-section">
           <ul class="right">
@@ -26,18 +28,26 @@
         </section>
     </nav>
   </div>
+
+
   <!-- BODY -->
 	     <div class="row">
-  	    <div class="large-8 columns" role="content">
+        <div class='large-12 columns'>
+          <div class'row'>
+  	        <div class="large-8 columns">
 		          <%= yield %>
-		     </div>
-         <div class='small-1 columns'>
-           <div id="wrapper">
+		        </div>
+            <div class='large-2 columns'>
+              <div id="wrapper">
+              <%= render 'shared/test' %>
+              </div>
+            </div>
+	        </div>
+        </div>
+      </div>
 
-             <%= render 'shared/test' %>
-           </div>
-         </div>
-	     </div>
+
+
       <!-- FOOTER -->
 	    <div id="footer">
 	  	  <footer>
