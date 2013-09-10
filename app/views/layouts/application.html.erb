@@ -9,15 +9,17 @@
 </head>
   <body>
     <img alt="full screen background image" src="assets/candlestick.png" id="full-screen-background-image" /> 
+
+    <!-- NAV BAR -->
+
   <div class="fixed contains-to-grid">
     <nav class="top-bar">
+      <!-- Title Area -->
+      
       <ul class="left">
         <li class='name'>
           <h1><a href ='/'>SportsSpike</a></h1></li>
       </ul>
-
-
-      <!-- HEADER -->
         <section class="top-bar-section">
           <ul class="right">
             <li class='divider'></li>
@@ -26,29 +28,31 @@
             <li class><a href="#">About</a></li>
           </ul>
         </section>
+      </div>
+     </div>
     </nav>
   </div>
 
-
   <!-- BODY -->
-	     <div class="row">
+	    <div class="row">
         <div class='large-12 columns'>
           <div class'row'>
-  	        <div class="large-8 columns">
-		          <%= yield %>
-		        </div>
-            <div class='large-2 columns'>
-              <div id="wrapper">
-              <%= render 'shared/test' %>
-              </div>
-            </div>
-	        </div>
-        </div>
+  	       <div class="large-9 columns">
+
+		        <%= yield %>
+
+		       </div>
+           <div class='large-3 columns'>
+
+            <%= render 'shared/test' %>
+
+           </div>
+          </div>
+	      </div>
       </div>
-
-
-
       <!-- FOOTER -->
+  <div class="row">
+    <div class='large-12 columns'>
 	    <div id="footer">
 	  	  <footer>
      	    <div id="social-icons">
@@ -64,5 +68,8 @@
           </div>
     	  </footer>
   	  </div>
+    </div>
+  </div>
   </body>
 </html>
+
