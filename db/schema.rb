@@ -28,7 +28,10 @@ ActiveRecord::Schema.define(version: 20130909225006) do
 
   create_table "redis_trips", force: true do |t|
     t.integer  "tweet_count"
+<<<<<<< HEAD
     t.time     "timestamps"
+=======
+>>>>>>> 2664717d8f7881b9b98cbf9197cdfd0e973063ea
     t.integer  "short_ema"
     t.integer  "long_ema"
     t.datetime "created_at"

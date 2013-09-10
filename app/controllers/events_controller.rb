@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    render json: @events.to_json(:include => :spikes)
+    render json: @events.to_json(:include => {:search_terms => {:include => :redis_trips}})
   end
 
   # def show
