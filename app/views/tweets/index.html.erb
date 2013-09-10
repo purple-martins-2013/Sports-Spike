@@ -1,24 +1,11 @@
-<div class='container'>
-
-<ul>
-<% @espn.each do |scores|%>
-	<li><%=scores[:league].upcase%><br>
+<div class="panel">
+  <ul>
+	<% @espn.each do |scores|%>
+	  <li><%=scores[:league].upcase%><br>
 		Date:<%=scores[:game_date]%><br>
 		Home:<%=scores[:home_team].upcase%>:<%=scores[:home_score]%><br>
 		Visitors:<%=scores[:away_team].upcase%>:<%=scores[:away_score]%><br>
 		Status:<%=scores[:status]%><br>
-		<br>
-		<br>
 	<%end%>
-</ul>
-
-<% if @redis_trip.first %>
-	<%= @time.to_i %> seconds have passed since the last 100 tweets mentioning the Denver Baltimore game!
-		<ul>
- 		 Trip objects we're recording:
-  		<% @redis_trip.each do |trip| %>
-  		<li> <%=trip.time %></li>
-  		<%end%>
-		</ul>
-<% end %>
+  </ul>
 </div>

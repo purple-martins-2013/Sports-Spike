@@ -1,6 +1,5 @@
 require 'tweetstream'
 
-
 TweetStream.configure do |config|
   config.consumer_key         = 'EJboNtzlFa0wX7FNjZtlg'  
   config.consumer_secret      = 'z1n9xc4T8BsLPmnT6bTnTKS75ZmFXm01kpqrzIV4ho'
@@ -8,7 +7,3 @@ TweetStream.configure do |config|
   config.oauth_token_secret   = 'oksEY9j5FVrSZc9vWDxr7fdsY9sKsT91TyqKhHV7GxQ'
   config.auth_method          = :oauth
 end
-
-
-
-
