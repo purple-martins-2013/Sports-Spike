@@ -1,9 +1,7 @@
 class RedisTripsController < ApplicationController
  
   def index
-    store = TweetStore.new
-    @redis_trip = RedisTrip.all.reverse_order
-    @tweets = store.tweets
+    @redis_trip_display = RedisTrip.all
   end
 
 end
