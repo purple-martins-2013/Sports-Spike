@@ -3,7 +3,7 @@
 html, body {
   height: 100%;
   width: 100%;
-  padding: 0;
+  padding-top: 30px;
   margin: 0;
 }
 
@@ -28,12 +28,9 @@ html, body {
 .panel {
     opacity: 0.65;
     color: #333;
-    font-size: 60%
+    font-size: 65%
 }
 
   h1 {
     text-align: center;
-  }
-  body {
-    padding-top: 60px;
   }
