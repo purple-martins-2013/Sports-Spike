@@ -4,25 +4,33 @@ FactoryGirl.define do
   factory :event do
     sequence(:name) { |n| "Event #{n}" }
     sequence(:date) { |n| Time.now + n }
+  end
 
-    factory :event_with_spikes do
+  factory :search_term do
+    sequence(:hashtag) { |n| "Hashtag#{n}" }
+
+    factory :search_term_with_events do
+      events { [create(:event)] }
+
       ignore do
-        spikes_count 5
+        redis_trip_count 35
       end
 
-      after(:create) do |event, evaluator|
-        create_list(:spike, evaluator.spikes_count, event: event)
+      after(:create) do |search_term, evaluator|
+        create_list(:redis_trip, evaluator.redis_trip_count, search_term: search_term)
       end
     end
   end
 
   factory :spike do
-    sequence(:date_time) { |n| Time.now + n * 3600 }
-    peak_velocity { rand(100) * 10 }
-    event
+    redis_trip { create(:redis_trip_with_search_term) }
   end
 
   factory :redis_trip do
-    sequence(:time) { |n| Time.now + n * 1000}
+    tweet_count { rand(7) == 3 ? 400 : 50 }
+
+    factory :redis_trip_with_search_term do
+      search_term
+    end
   end
 end
