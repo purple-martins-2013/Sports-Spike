@@ -8,29 +8,46 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
   <body>
-    <img alt="full screen background image" src="assets/candlestick.jpg" id="full-screen-background-image" /> 
-      <div id="wrapper">
+    <img alt="full screen background image" src="assets/candlestick.png" id="full-screen-background-image" /> 
+  <div class="fixed contains-to-grid">
+    <nav class="top-bar">
+      <ul class="left">
+        <li class='name'>
+          <h1><a href ='/'>SportsSpike</a></h1></li>
+      </ul>
+      <!-- HEADER -->
+        <section class="top-bar-section">
+          <ul class="right">
+            <li class='divider'></li>
+            <li class=><a href="#">Home</a></li>
+            <li class><a href="#">Button</a></li>
+            <li class><a href="#">About</a></li>
+          </ul>
+        </section>
+    </nav>
+  </div>
+  <!-- BODY -->
 	     <div class="row">
-  	     <div class="small-12 large-centered columns">
-  	  	  <%= render 'shared/header' %>
-		      <%= yield %>
+  	    <div class="large-8 columns" role="content">
+		          <%= yield %>
 		     </div>
+         <div class='small-1 columns'>
+           <div id="wrapper">
+
+             <%= render 'shared/test' %>
+           </div>
+         </div>
 	     </div>
-	    </div>
+      <!-- FOOTER -->
 	    <div id="footer">
 	  	  <footer>
      	    <div id="social-icons">
             <a href="https://facebook.com"><%= image_tag 'facebook.png', size: '24x24' %></a>
             <a href="https://twitter.com"><%= image_tag 'twitter.png', size: '24x24' %></a>
         	  <a href="https://github.com"><%= image_tag 'github.png', size: '24x24' %></a>
-
-
-            <i class="foundicon-[icon]"></i>
-
-
       	  </div>
       	  <div>
-            <a href="mailto:ishwar.nagar@gmail.com">Ishwar, </a>
+            <a href="mailto:ishwar.nagar@gmail.com"> Ishwar, </a>
             <a href="mailto:stharlow@gmail.com">Steve, </a>
             <a href="mailto:chapman.snowden@gmail.com">Chapman, </a>
             <a href="mailto:mehagel65@gmai.com">Mark</a>

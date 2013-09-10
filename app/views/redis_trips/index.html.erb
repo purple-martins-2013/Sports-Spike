@@ -1,11 +1,12 @@
 <meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
 
 <body>
-  <div class="panel callout radius">
-  <h1>Fan Twitter Activity</h1>
+  <div id="wrapper">
+    <div class="panel callout radius">
+      <h1>Fan Twitter Activity</h1>
   
-  <canvas id="myChart" height="450" width="600"></canvas>
-  <script>
+      <canvas id="myChart" height="450" width="600"></canvas>
+      <script>
   // set the stage for the visualization
   $(document).ready(function() {
     
@@ -29,6 +30,7 @@
     }
     var myLineGraph = new Chart(document.getElementById("myChart").getContext("2d")).Line(chartData);
   });
-  </script>
-</div>
+      </script>
+    </div>
+  </div>
 </body>
