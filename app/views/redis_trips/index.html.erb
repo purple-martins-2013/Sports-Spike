@@ -3,8 +3,7 @@
 <body>
   <div class="panel">
   <h1>49ers and Packers Fan Activity</h1>
-  <p><%= @redis_trip_display.pluck('tweet_count') %></p>
-  <p><%= @redis_trip_display.pluck('created_at').count %></p>
+  
   <canvas id="myChart" height="450" width="600"></canvas>
   <script>
   // set the stage for the visualization
