@@ -1,3 +1,3 @@
 5.times do
-  FactoryGirl.create(:event_with_spikes)
+  FactoryGirl.create(:search_term_with_events)
 end
