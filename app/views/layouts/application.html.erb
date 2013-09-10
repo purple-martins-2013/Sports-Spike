@@ -1,19 +1,41 @@
 <!DOCTYPE html>
-<html ng-app='sportsSpike'>
+<html>
 <head>
-  <title>SportsSpike</title>
+  <title>Sports Spike</title>
   <%= stylesheet_link_tag    "application", media: "all"%>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'application' %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
-<body>
+  <body>
+    <img alt="full screen background image" src="assets/candlestick.png" id="full-screen-background-image" /> 
+      <div id="wrapper">
+	     <div class="row">
+  	     <div class="small-12 large-centered columns">
+  	  	  <%= render 'shared/header' %>
+		      <%= yield %>
+		     </div>
+	     </div>
+	    </div>
+	    <div id="footer">
+	  	  <footer>
+     	    <div id="social-icons">
+            <a href="https://facebook.com"><%= image_tag 'facebook.png', size: '24x24' %></a>
+            <a href="https://twitter.com"><%= image_tag 'twitter.png', size: '24x24' %></a>
+        	  <a href="https://github.com"><%= image_tag 'github.png', size: '24x24' %></a>
 
-  <%= render 'shared/header' %>
 
-  <%= yield %>
+            <i class="foundicon-[icon]"></i>
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
-  <%= javascript_include_tag "application"%>
-</body>
- 
+
+      	  </div>
+      	  <div>
+            <a href="mailto:ishwar.nagar@gmail.com">Ishwar, </a>
+            <a href="mailto:stharlow@gmail.com">Steve, </a>
+            <a href="mailto:chapman.snowden@gmail.com">Chapman, </a>
+            <a href="mailto:mehagel65@gmai.com">Mark</a>
+          </div>
+    	  </footer>
+  	  </div>
+  </body>
 </html>

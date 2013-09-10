@@ -1,5 +1,5 @@
 # This really feels like a controller to me, not a model
-
+require 'espn_scraper'
 require 'json'
 require 'redis'
 require 'tweetstream'

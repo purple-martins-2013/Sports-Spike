@@ -10,5 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require app
-//= require_tree ./angular
+//= require chart
+//= require_tree .
+
+$(document).foundation();
