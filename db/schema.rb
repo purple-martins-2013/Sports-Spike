@@ -11,42 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130907224936) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20130909225006) do
 
   create_table "events", force: true do |t|
     t.string   "name"
     t.datetime "date"
   end
 
-  create_table "search_terms", force: true do |t|
-    t.string "term"
+  create_table "events_search_terms", force: true do |t|
+    t.integer "event_id"
+    t.integer "search_term_id"
   end
 
   create_table "redis_trips", force: true do |t|
-    t.datetime "time"
     t.integer  "tweet_count"
-    t.time     "timestamps"
+    t.integer  "short_ema"
+    t.integer  "long_ema"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "macd"
+    t.integer  "signal_line"
+    t.integer  "histogram"
+    t.integer  "search_term_id"
+  end
+
+  create_table "search_terms", force: true do |t|
+    t.string "hashtag"
   end
 
   create_table "spikes", force: true do |t|
-    t.datetime "date_time"
-    t.integer  "peak_velocity"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "event_id"
-  end
-
-  create_table "tweets", force: true do |t|
-    t.integer  "tweet_id"
-    t.string   "text"
-    t.string   "username"
-    t.integer  "user_id"
-    t.string   "received_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "redis_trip_id"
   end
 
 end
