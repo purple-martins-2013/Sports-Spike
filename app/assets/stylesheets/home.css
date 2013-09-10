@@ -26,7 +26,7 @@ html, body {
   color: #333;
 }
 .panel {
-    opacity: 0.80;
+    opacity: 0.90;
     color: #333;
 }
 
@@ -35,4 +35,8 @@ html, body {
   height: 30px;
   bottom: 0px;
   font-size: 120%;
+  }
+
+  h1 {
+    text-align: center;
   }
