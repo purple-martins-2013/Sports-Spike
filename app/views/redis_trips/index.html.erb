@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>49ers and Packers Fan Activity</title>
+    <%= javascript_include_tag "application" %>
+    <meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+    <style> 
+      canvas{
+
+      }
+    </style>
+  </head>
+  <body>
+    <h1>49ers and Packers Fan Activity</h1>
+    <canvas id="myChart" height="450" width="600"></canvas>
+    <script>
+  // set the stage for the visualization
+      
+      var chartData = {
+        labels : ["1:37","1:38","1:40","1:41","1:42","1:43","1:44","1:45","1:46","1:47","1:48","1:49","1:50","1:51","1:52","1:53","1:54"],
+        datasets : [
+                { fillColor : "rgba(220,220,220,0.5)",
+                  strokeColor : "rgba(220,220,220,1)",
+                  pointColor : "rgba(220,220,220,1)",
+                  pointStrokeColor : "#fff",
+                  data : [158,118,112,83,91,88,86,60,158,320,275,112,90,79,84,52,111,150,114,74,62,69,233,135,93,76]
+
+                },
+                { fillColor : "rgba(220,220,220,0.5)",
+                  strokeColor : "rgba(220,220,220,1)",
+                  pointColor : "rgba(220,220,220,1)",
+                  pointStrokeColor : "#fff",
+                  data : [128,108,94,73,71,83,86,60,128,200,193,112,100,75,64,52,34,45,60,65,62,69,85,92,93,84]
+
+                }
+
+                  ]
+               }
+      var myLineGraph = new Chart(document.getElementById("myChart").getContext("2d")).Line(chartData);
+
+    </script>
+    </body>
+</html>
