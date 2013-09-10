@@ -1,34 +1,37 @@
 
-
-<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
 <body>
   <h1>49ers and Packers Fan Activity</h1>
-  <p><%= @redis_trip_display.pluck('tweet_count') %></p>
-  <p><%= @redis_trip_display.pluck('created_at').count %></p>
-  <canvas id="myChart" height="450" width="600"></canvas>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <div id="container" style="height: 500px"></div> 
   <script>
-  // set the stage for the visualization
+ // set the stage for the visualization
   $(document).ready(function() {
-    
-    var redisTweetCount = <%= @redis_trip_display.pluck('tweet_count') %>
-    // var redisTimeCount = <%= @redis_trip_display.pluck('created_at') %>
+     var data = [];
+  
+      $.getJSON('/data', 
+        function(inData) {
+          var xval = new Date();
+          dateStart = Date.parse(inData.datapoints[0].at);
+          for (i = 0; i < inData.datapoints.length; i++) {
+              var yval = parseFloat(inData.datapoints[i].value);
+              xval = Date.parse(inData.datapoints[i].at);
+              var x = [xval, yval];
 
-    var chartData = {
-      labels : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
-        datasets : [{ fillColor : "rgba(220,220,220,0.5)",
-        strokeColor : "rgba(220,220,220,1)",
-        pointColor : "rgba(220,220,220,1)",
-        pointStrokeColor : "#fff",
-        data : redisTweetCount},
-        { fillColor : "rgba(220,220,220,0.5)",
-        strokeColor : "rgba(220,220,220,1)",
-        pointColor : "rgba(220,220,220,1)",
-        pointStrokeColor : "#fff",
-        data : redisTweetCount
-        }
-      ] 
-    }
-    var myLineGraph = new Chart(document.getElementById("myChart").getContext("2d")).Line(chartData);
+              data.push(x);
+          }
+          //data.push({x: xval, y:yval});
+          var chart = new Highcharts.Chart({
+              chart: {
+                  renderTo: '#container'
+              },
+              xAxis: {
+                  type: 'datetime'
+              },
+              series: [{
+                  data: data}]
+          });
+      });
+
   });
   </script>
 </body>
