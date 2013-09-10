@@ -1,17 +1,17 @@
-
 task :watch_twitter => :environment do
-  store = TweetStore.new
-  TweetStream::Client.new.track('#broncos', '#ravens') do |status|
-    if status.text
-      p status[:id]
-      store.push(
-        'id' => status[:id],
-        # 'text' => status.text,
-        # 'username' => status.user.screen_name,
-        # 'userid' => status.user[:id],
-        # 'name' => status.user.name,
-        'received_at' => Time.new.to_i  
-        )
+  teams = SearchTerm.all
+  store = TweetStore.new(teams)
+  TweetStream::Client.new.track(teams.pluck('hashtag').join(', ')) do |status|
+    puts 'TweetStream initialized successfully'
+    tags = []
+    status.hashtags.each { |tag| tags << tag.text }
+    tags.map! { |tag| "\##{tag}"}
+    tags.select! { |tag| teams.map { |x| x.hashtag.downcase }.include?(tag.downcase) }
+    if status
+      puts "about to call store.push"
+      store.push(tags.uniq)
+      store.check_timer
+      p status.user.name
     end
   end
 end

@@ -13,6 +13,7 @@ Bundler.require(:default, Rails.env)
 
 module SportsSpike
   class Application < Rails::Application
+    config.timezone = 'Pacific Time (US & Canada)'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

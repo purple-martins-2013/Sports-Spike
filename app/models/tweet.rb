@@ -1,7 +1,9 @@
-require 'espn_scraper'
-class Tweet
+class Spike < ActiveRecord::Base
+  belongs_to :redis_trip
   
-  def initialize(data)
-    @data = data
+
+  def time_since_game_start
+    self.date_time.time - self.event.date.time
   end
+  
 end

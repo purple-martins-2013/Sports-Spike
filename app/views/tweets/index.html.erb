@@ -1,11 +1,13 @@
 <div class="panel">
   <ul>
-	<% @espn.each do |scores|%>
-	  <li><%=scores[:league].upcase%><br>
-		Date:<%=scores[:game_date]%><br>
-		Home:<%=scores[:home_team].upcase%>:<%=scores[:home_score]%><br>
-		Visitors:<%=scores[:away_team].upcase%>:<%=scores[:away_score]%><br>
-		Status:<%=scores[:status]%><br>
-	<%end%>
+    <% @events.each do |event| %>
+    <li><%= event.name %> || <small><%= event.date %></small>
+      <ul>
+        <% event.spikes.each do |spike| %>
+        <li>Time of Spike: <%= spike.date_time %> || Spike Velocity: <%= spike.peak_velocity %></li>
+        <% end %>
+      </ul>     
+    </li>
+    <% end %>
   </ul>
 </div>
