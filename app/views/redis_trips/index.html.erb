@@ -1,7 +1,7 @@
-
-
 <meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+
 <body>
+  <div class="panel">
   <h1>49ers and Packers Fan Activity</h1>
   <p><%= @redis_trip_display.pluck('tweet_count') %></p>
   <p><%= @redis_trip_display.pluck('created_at').count %></p>
@@ -31,4 +31,5 @@
     var myLineGraph = new Chart(document.getElementById("myChart").getContext("2d")).Line(chartData);
   });
   </script>
+</div>
 </body>

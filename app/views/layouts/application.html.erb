@@ -4,38 +4,25 @@
   <title>Sports Spike</title>
   <%= stylesheet_link_tag    "application", media: "all"%>
   <%= csrf_meta_tags %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag 'application' %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
   <body>
     <img alt="full screen background image" src="assets/candlestick.jpg" id="full-screen-background-image" /> 
-    <div id="wrapper">
-	 <div class="row">
-  	  <div class="small-6 large-centered columns">
-  	  	<%= render 'shared/header' %>
-		<%= yield %>
-		
-		<div class="panel">
-  <ul>
-	<% @espn.each do |scores|%>
-	  <li><%=scores[:league].upcase%><br>
-		Date:<%=scores[:game_date]%><br>
-		Home:<%=scores[:home_team].upcase%>:<%=scores[:home_score]%><br>
-		Visitors:<%=scores[:away_team].upcase%>:<%=scores[:away_score]%><br>
-		Status:<%=scores[:status]%><br>
-	<%end%>
-  </ul>
-</div>
-
-		</div>
-	 </div>
-	</div>
-	  <div id="footer">
-	  	<footer>
-     	  <div id="social-icons">
+      <div id="wrapper">
+	     <div class="row">
+  	     <div class="small-12 large-centered columns">
+  	  	  <%= render 'shared/header' %>
+		      <%= yield %>
+		     </div>
+	     </div>
+	    </div>
+	    <div id="footer">
+	  	  <footer>
+     	    <div id="social-icons">
             <a href="https://facebook.com"><%= image_tag 'facebook.png', size: '24x24' %></a>
             <a href="https://twitter.com"><%= image_tag 'twitter.png', size: '24x24' %></a>
-        	<a href="https://github.com"><%= image_tag 'github.png', size: '24x24' %></a>
+        	  <a href="https://github.com"><%= image_tag 'github.png', size: '24x24' %></a>
       	  </div>
       	  <div>
             <a href="mailto:ishwar.nagar@gmail.com">Ishwar, </a>
@@ -43,7 +30,7 @@
             <a href="mailto:chapman.snowden@gmail.com">Chapman, </a>
             <a href="mailto:mehagel65@gmai.com">Mark</a>
           </div>
-    	</footer>
+    	  </footer>
   	  </div>
   </body>
 </html>
