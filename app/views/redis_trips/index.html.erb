@@ -1,10 +1,37 @@
-<p>If you can see me, you've arrived at the tweets index </p>
-<% if @redis_trip.first %>
-	<%= @time.to_i %> seconds have passed since the last 100 tweets mentioning the Denver Baltimore game!
-		<ul>
- 		 Trip objects we're recording:
-  		<% @redis_trip.each do |trip| %>
-  		<li> <%=trip.time %></li>
-  		<%end%>
-		</ul>
-<% end %>
+
+<body>
+  <h1>49ers and Packers Fan Activity</h1>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <div id="container" style="height: 500px"></div> 
+  <script>
+ // set the stage for the visualization
+  $(document).ready(function() {
+     var data = [];
+  
+      $.getJSON('/data', 
+        function(inData) {
+          var xval = new Date();
+          dateStart = Date.parse(inData.datapoints[0].at);
+          for (i = 0; i < inData.datapoints.length; i++) {
+              var yval = parseFloat(inData.datapoints[i].value);
+              xval = Date.parse(inData.datapoints[i].at);
+              var x = [xval, yval];
+
+              data.push(x);
+          }
+          //data.push({x: xval, y:yval});
+          var chart = new Highcharts.Chart({
+              chart: {
+                  renderTo: '#container'
+              },
+              xAxis: {
+                  type: 'datetime'
+              },
+              series: [{
+                  data: data}]
+          });
+      });
+
+  });
+  </script>
+</body>

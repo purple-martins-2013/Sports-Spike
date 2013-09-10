@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html ng-app='sportsSpike'>
+<html>
 <head>
   <title>SportsSpike</title>
   <%= stylesheet_link_tag    "application", media: "all"%>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag "application" %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
 
@@ -11,9 +13,9 @@
 
   <%= yield %>
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
   <%= javascript_include_tag "application"%>
 </body>
  
 </html>
+
+
