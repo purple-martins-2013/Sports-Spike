@@ -10,6 +10,7 @@ gem 'tweetstream'
 gem 'ruport'
 gem 'acts_as_reportable'
 gem 'redis'
+gem 'chart-js-rails'
 
 group :test, :development do
   gem 'rspec-rails'

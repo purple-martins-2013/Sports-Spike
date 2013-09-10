@@ -1,9 +1,9 @@
-<div class='event-list' ng-controller='EventsCtrl'>
+<div >
   <ul>
-    <li ng-repeat='event in events'>
+    <li >
       {{ event.name }} || <small>{{ event.date }}</small>
       <ul>
-        <li ng-repeat='spike in event.spikes'>
+        <li>
           Time of Spike: {{ spike.date_time }} || Spike Velocity: {{ spike.peak_velocity }}
         </li>
       </ul>     

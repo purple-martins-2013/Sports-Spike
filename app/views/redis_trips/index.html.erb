@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>49ers and Packers Fan Activity</title>
-    <%= javascript_include_tag "application" %>
-    <meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+
+
     <style> 
       canvas{
 
       }
     </style>
+    <meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
   </head>
   <body>
     <h1>49ers and Packers Fan Activity</h1>
     <canvas id="myChart" height="450" width="600"></canvas>
     <script>
   // set the stage for the visualization
-      
+      $(document).ready(function() {
       var chartData = {
         labels : ["1:37","1:38","1:40","1:41","1:42","1:43","1:44","1:45","1:46","1:47","1:48","1:49","1:50","1:51","1:52","1:53","1:54"],
         datasets : [
@@ -37,7 +34,6 @@
                   ]
                }
       var myLineGraph = new Chart(document.getElementById("myChart").getContext("2d")).Line(chartData);
-
+    });
     </script>
     </body>
-</html>
