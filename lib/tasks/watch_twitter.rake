@@ -8,6 +8,7 @@ task :watch_twitter => :environment do
     tags.map! { |tag| "\##{tag}"}
     tags.select! { |tag| teams.map { |x| x.hashtag.downcase }.include?(tag.downcase) }
     if status
+      p status.created_at
       puts "about to call store.push"
       store.push(tags.uniq)
       store.check_timer
