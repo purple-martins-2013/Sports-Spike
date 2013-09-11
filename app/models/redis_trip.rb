@@ -27,10 +27,10 @@ class RedisTrip < ActiveRecord::Base
   def calculate_short_ema
     if RedisTrip.where("search_term_id = #{self.search_term_id}").size == SHORT_EMA_PERIOD + 1
       # self.short_ema = RedisTrip.where("search_term_id = #{self.search_term_id}").pluck('tweet_count').inject(:+) / SHORT_EMA_PERIOD
-      self.short_ema = RedisTrip.order('created_at DESC').limit(SHORT_EMA_PERIOD).pluck('tweet_count').inject(:+) / SHORT_EMA_PERIOD
+      self.short_ema = RedisTrip.where("search_term_id = #{self.search_term_id}").order('created_at DESC').limit(SHORT_EMA_PERIOD).pluck('tweet_count').inject(:+) / SHORT_EMA_PERIOD
     elsif RedisTrip.where("search_term_id = #{self.search_term_id}").size > SHORT_EMA_PERIOD + 1
       sc = smoothing_constant(SHORT_EMA_PERIOD)
-      last_ema = RedisTrip.order('created_at DESC').first.short_ema
+      last_ema = RedisTrip.where("search_term_id = #{self.search_term_id}").order('created_at DESC').first.short_ema
       self.short_ema = last_ema + sc * ( self.tweet_count - last_ema )
     end
   end
@@ -38,10 +38,10 @@ class RedisTrip < ActiveRecord::Base
   def calculate_long_ema
     if RedisTrip.where("search_term_id = #{self.search_term_id}").size == LONG_EMA_PERIOD + 1
       # self.long_ema = RedisTrip.where("search_term_id = #{self.search_term_id}").pluck('tweet_count').inject(:+) / LONG_EMA_PERIOD
-      self.long_ema = RedisTrip.order('created_at DESC').limit(LONG_EMA_PERIOD).pluck('tweet_count').inject(:+) / LONG_EMA_PERIOD
+      self.long_ema = RedisTrip.where("search_term_id = #{self.search_term_id}").order('created_at DESC').limit(LONG_EMA_PERIOD).pluck('tweet_count').inject(:+) / LONG_EMA_PERIOD
     elsif RedisTrip.where("search_term_id = #{self.search_term_id}").size > LONG_EMA_PERIOD + 1
       sc = smoothing_constant(LONG_EMA_PERIOD)
-      last_ema = RedisTrip.order('created_at DESC').first.long_ema
+      last_ema = RedisTrip.where("search_term_id = #{self.search_term_id}").order('created_at DESC').first.long_ema
       self.long_ema = last_ema + sc * ( self.tweet_count - last_ema )
     end
   end
@@ -52,10 +52,10 @@ class RedisTrip < ActiveRecord::Base
 
   def calculate_signal_line
     if RedisTrip.where("search_term_id = #{self.search_term_id}").size == LONG_EMA_PERIOD + SIGNAL_LINE_PERIOD + 1
-      self.signal_line = RedisTrip.order('created_at DESC').limit(SIGNAL_LINE_PERIOD).pluck('macd').inject(:+) / SIGNAL_LINE_PERIOD 
+      self.signal_line = RedisTrip.where("search_term_id = #{self.search_term_id}").order('created_at DESC').limit(SIGNAL_LINE_PERIOD).pluck('macd').inject(:+) / SIGNAL_LINE_PERIOD 
     elsif RedisTrip.where("search_term_id = #{self.search_term_id}").size > LONG_EMA_PERIOD + SIGNAL_LINE_PERIOD + 1
       sc = smoothing_constant(SIGNAL_LINE_PERIOD)
-      last_signal_line = RedisTrip.order('created_at DESC').first.signal_line
+      last_signal_line = RedisTrip.where("search_term_id = #{self.search_term_id}").order('created_at DESC').first.signal_line
       self.signal_line = last_signal_line + sc * ( self.macd - last_signal_line )
     end
   end

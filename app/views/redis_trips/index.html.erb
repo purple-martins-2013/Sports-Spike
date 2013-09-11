@@ -1,36 +1,8 @@
-<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
-
-<body>
-
-    <div class="panel callout radius">
-      <h1>Fan Twitter Activity</h1>
-  
-      <canvas id="myChart" height="450" width="480"></canvas>
-      <script>
-  // set the stage for the visualization
-  $(document).ready(function() {
-    
-    var redisTweetCount = <%= @redis_trip_display.pluck('tweet_count') %>
-    // var redisTimeCount = <%= @redis_trip_display.pluck('created_at') %>
-
-    var chartData = {
-      labels : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
-        datasets : [{ fillColor : "rgba(220,220,220,0.5)",
-        strokeColor : "rgba(220,220,220,1)",
-        pointColor : "rgba(220,220,220,1)",
-        pointStrokeColor : "#fff",
-        data : redisTweetCount},
-        { fillColor : "rgba(220,220,220,0.5)",
-        strokeColor : "rgba(220,220,220,1)",
-        pointColor : "rgba(220,220,220,1)",
-        pointStrokeColor : "#fff",
-        data : redisTweetCount
-        }
-      ] 
-    }
-    var myLineGraph = new Chart(document.getElementById("myChart").getContext("2d")).Line(chartData);
-  });
-      </script>
-    </div>
-
-</body>
+<div class='panel'>
+  <h2>Choose a team for more information</h2>
+  <% @teams.each do |team| %>
+    <ul>
+      <p><h3><%= link_to "#{team.hashtag}", team_pulse_path(team) %></h3></p>
+    </ul>
+  <% end %>
+</div>
