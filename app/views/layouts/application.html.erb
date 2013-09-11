@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Sports Spike</title>
-  <%= stylesheet_link_tag    "application", media: "all"%>
+  <%= stylesheet_link_tag "application", media: "all"%>
   <%= csrf_meta_tags %>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -34,28 +34,23 @@
     </nav>
   </div>
 
-
   <!-- BODY -->
 	    <div class="row">
         <div class='large-12 columns'>
           <div class'row'>
+             <div class='large-3 columns' id="left-panel">
+
+              <%=yield%>
+
+           </div>
   	       <div class="large-9 columns">
 
 		        <%= yield %>
 
 		       </div>
-           <div class='large-3 columns'>
-
-            <%= render 'shared/test' %>
-
-           </div>
-=======
-
-
           </div>
 	      </div>
       </div>
-
       <!-- FOOTER -->
     <div class="row">
       <div class='large-12 columns'>

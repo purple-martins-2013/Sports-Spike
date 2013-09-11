@@ -6,7 +6,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'redis-rails' 
 gem 'tweetstream'
 gem 'espn_scraper', git: 'git://github.com/in15/espn-scraper.git'
-gem 'compass-rails', "~> 2.0.alpha.0" # you need this or you get an err
+# gem 'sass-rails'
+# gem 'compass-rails', "~> 2.0.alpha.0" # you need this or you get an err
 gem 'zurb-foundation', '~> 4.0.0'
 gem 'chronic'
 gem 'redis-rails'
