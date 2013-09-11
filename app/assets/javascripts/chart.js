@@ -4,7 +4,8 @@ Highcharts.setOptions({
       }
 });
 
-var MyChart = {
+
+var myChart = {
 
   pollTime: 60000,
 
@@ -27,7 +28,7 @@ var MyChart = {
       var data = $.each(data, function(k, coordinate) {
         newData.push([Date.parse(coordinate[0]), coordinate[1]]);
       });
-      MyChart.draw(newData);
+      myChart.draw(newData);
     });
   },
 
@@ -134,3 +135,68 @@ var MyChart = {
     });
   }
 }
+
+// $(function(){
+// var voltChart = new Highcharts.Chart({
+//         chart: {
+//             renderTo: 'container',
+//             type: 'gauge',
+//             plotBorderWidth: 1,
+//             plotBackgroundColor: {
+//                 linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+//                 stops: [
+//                     [0, '#FFF4C6'],
+//                     [0.3, '#FFFFFF'],
+//                     [1, '#FFF4C6']
+//                 ]
+//             },
+//             plotBackgroundImage: null,
+//             height: 200
+//         },
+    
+//         title: {
+//             text: 'Patriot Nation Excitement'
+//         },
+        
+//         pane: [{
+//             startAngle: -45,
+//             endAngle: 45,
+//             background: null,
+//             center: ['25%', '145%'],
+//             size: 300
+//         }],
+//         yAxis: [{
+//             min: -20,
+//             max: 6,
+//             minorTickPosition: 'outside',
+//             tickPosition: 'outside',
+//             labels: {
+//                 rotation: 'auto',
+//                 distance: 20
+//             },
+//             plotBands: [{
+//                 from: 0,
+//                 to: 6,
+//                 color: '#C02316',
+//                 innerRadius: '100%',
+//                 outerRadius: '105%'
+//             }],
+//             pane: 0,
+//             title: {
+//                 text: 'VU<br/><span style="font-size:8px">Get Excited</span>',
+//                 y: -40
+//             },
+//         }],
+//         plotOptions: {
+//           gauge: {
+//             dataLabels: {
+//               enable: false
+//             },
+//           },
+//           dial: {
+//             radius: '100%'
+//           }
+//         }
+
+//   });
+// });
