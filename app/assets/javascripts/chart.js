@@ -55,10 +55,6 @@ var Chart = {
             type: 'hour',
             count: 4,
             text: '4hr'
-        },{
-            type: 'day',
-            count: 1,
-            text: 'day'
         }
         ],
         buttonTheme: { // styles for the buttons
@@ -118,7 +114,6 @@ var Chart = {
   
           name: 'Tweets Per Minute',
           data: data,
-          turboThreshold: 10000,
           dataGrouping: {
             enabled: false
           }
