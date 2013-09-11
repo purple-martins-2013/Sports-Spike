@@ -1,6 +1,5 @@
 class RedisTripsController < ApplicationController
   
-
   def index
   end
   

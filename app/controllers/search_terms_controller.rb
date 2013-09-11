@@ -2,6 +2,7 @@ class SearchTermsController < ApplicationController
 
   def index
   end
+  
   def show
     unless request.xhr?
       trips = RedisTrip.where(search_term_id: params[:id])
