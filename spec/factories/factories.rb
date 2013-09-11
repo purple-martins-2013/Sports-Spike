@@ -1,6 +1,8 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
+  to_create {|instance| instance.save }
+
   factory :event do
     sequence(:name) { |n| "Event #{n}" }
     sequence(:date) { |n| Time.now + n }
@@ -23,14 +25,11 @@ FactoryGirl.define do
   end
 
   factory :spike do
-    redis_trip { create(:redis_trip_with_search_term) }
+    redis_trip { create(:redis_trip) }
   end
 
   factory :redis_trip do
     tweet_count { rand(7) == 3 ? 400 : 50 }
-
-    factory :redis_trip_with_search_term do
-      search_term
-    end
+    search_term
   end
 end
