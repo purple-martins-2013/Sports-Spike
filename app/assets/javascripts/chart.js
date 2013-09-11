@@ -197,8 +197,8 @@ function makePulseChart() {
             size: 300
         }],
         yAxis: [{
-            min: -20,
-            max: 40,
+            min: 0,
+            max: 15,
             minorTickPosition: 'outside',
             tickPosition: 'outside',
             tickInterval: 5,
@@ -207,8 +207,8 @@ function makePulseChart() {
                 distance: 20
             },
             plotBands: [{
-                from: 30,
-                to: 40,
+                from: 12,
+                to: 15,
                 color: '#C02316',
                 innerRadius: '100%',
                 outerRadius: '105%'

@@ -1,7 +1,10 @@
 <div class='panel'>
-  <%= @team_name %></div>
-<div class='panel' id="chart"></div>
-<div class='panel' id="container" style="width: 600px; height: 300px; margin: 0 auto"></div>
+  <%= @team_name %>
+<br>  
+<div  id="chart"></div>
+<hr>
+<div  id="container" style="width: 600px; height: 300px; margin: 0 auto"></div>
+</div>
 <script>
   $(document).ready(function() {
     var chart1 = makeTweetGraph();
