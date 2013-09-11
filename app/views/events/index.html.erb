@@ -1,13 +1,6 @@
 <div class="panel">
-  <ul>
-    <% @events.each do |event| %>
-    <li><%= event.name %> || <small><%= event.date %></small>
-      <ul>
-        <% event.spikes.each do |spike| %>
-        <li>Time of Spike: <%= spike.date_time %> || Spike Velocity: <%= spike.peak_velocity %></li>
-        <% end %>
-      </ul>     
-    </li>
-    <% end %>
-  </ul>
+  <h2>Select A Game</h2>
+  <% @events.each do |event| %>
+    <p><h3><%= link_to "#{event.name}", event_path(event) %></h3><%= Date.strptime("#{event.date}").strftime("%B %d, %Y") %></p>
+  <% end %>
 </div>
