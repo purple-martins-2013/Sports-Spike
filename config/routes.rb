@@ -8,4 +8,6 @@ SportsSpike::Application.routes.draw do
     end
   end
 
+  get '/:search_term_id', to: 'redis_trips#team_pulse', as: 'team_pulse'
+
 end

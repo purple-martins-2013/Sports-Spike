@@ -1,12 +1,15 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.0.0'
 gem 'pg'
 gem 'uglifier', '>= 1.3.0'
-gem 'chronic'
 gem 'redis-rails' 
 gem 'tweetstream'
+gem 'espn_scraper', git: 'git://github.com/in15/espn-scraper.git'
+gem 'compass-rails' # you need this or you get an err
+gem 'zurb-foundation', '~> 4.0.0'
+gem 'chronic'
+gem 'redis-rails'
 gem 'ruport'
 gem 'acts_as_reportable'
 gem 'redis'
