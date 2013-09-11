@@ -1,3 +1,4 @@
+@import "compass/layout/sticky-footer";
 @include sticky-footer(72px, "#layout", "#layout_footer", "#footer");
 
 html, body {
