@@ -1,8 +1,10 @@
-<div class='panel' id='left-panel'>
-  <h2>Choose a team</h2>
-  <% @teams.each do |team| %>
-    <ul>
-      <p><h3><%= link_to "#{team.hashtag}", search_term_path(team) %></h3></p>
-    </ul>
-  <% end %>
-</div>
+<%content_for :sidenav do %>
+  <div class='panel' id='left-panel'>
+    <h4>Choose a team</h4>
+      <ul>
+        <% @teams.each do |team| %>
+      	  <li><%= link_to "#{team.hashtag}", search_term_path(team) %></li>
+      	<% end %>
+      </ul>
+  </div>
+<%end%>

@@ -24,7 +24,7 @@
         <section class="top-bar-section">
           <ul class="right">
             <li class='divider'></li>
-            <li class=><a href="#">Home</a></li>
+            <li class=><a href='#'>Home</a></li>
             <li class><a href="#">Away</a></li>
             <li class><a href="#">About</a></li>
           </ul>
@@ -41,13 +41,13 @@
              <div class='large-3 columns end' id="left-panel">
               <div class='side-nav'>
 
-              <%=yield%>
+                <%=yield :sidenav%>
 
-           </div>
-         </div>
+              </div>
+            </div>
   	       <div class="large-9 columns">
 
-		        <%= render 'shared/test' %>
+		        <%=yield%>
 
 		       </div>
           </div>
