@@ -4,6 +4,9 @@
 <div class='panel' id="container" style="width: 600px; height: 300px; margin: 0 auto"></div>
 <script>
   $(document).ready(function() {
-    myChart.init();
+    var chart1 = makeTweetGraph();
+    chart1.init()
+    var chart2 = makePulseChart();
+    chart2.init()
   });
 </script>
