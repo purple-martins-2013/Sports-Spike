@@ -10,7 +10,7 @@
 
 </head>
   <body>
-    <img alt="full screen background image" src="assets/candlestick.png" id="full-screen-background-image" /> 
+    <%= image_tag 'candlestick.png', alt: "full screen background image", id: "full-screen-background-image" %> 
 
     <!-- NAV BAR -->
   <div class="fixed contains-to-grid">
@@ -25,7 +25,7 @@
           <ul class="right">
             <li class='divider'></li>
             <li class=><a href="#">Home</a></li>
-            <li class><a href="#">Button</a></li>
+            <li class><a href="#">Away</a></li>
             <li class><a href="#">About</a></li>
           </ul>
         </section>
@@ -38,7 +38,7 @@
 	    <div class="row">
         <div class='large-12 columns'>
           <div class'row'>
-             <div class='large-3 columns' id="left-panel">
+             <div class='large-3 columns end' id="left-panel">
               <div class='side-nav'>
 
               <%=yield%>
@@ -47,7 +47,7 @@
          </div>
   	       <div class="large-9 columns">
 
-		        <%= yield %>
+		        <%= render 'shared/test' %>
 
 		       </div>
           </div>
