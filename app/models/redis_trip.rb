@@ -2,7 +2,7 @@ class RedisTrip < ActiveRecord::Base
   has_one :spike
   belongs_to :search_term
   
-  acts_as_reportable
+  # acts_as_reportable
 
   SIGNAL_LINE_PERIOD = 2
   SHORT_EMA_PERIOD = 4
