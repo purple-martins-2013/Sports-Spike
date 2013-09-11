@@ -40,7 +40,7 @@ var Chart = {
       },
       navigator: {
         enabled: true,
-        adaptToUpdatedData: true
+        adaptToUpdatedData: false
 
       },
 
@@ -48,6 +48,9 @@ var Chart = {
         enabled: true,
         inputEnabled: false,
         buttons: [{
+            type: 'all',
+            text: 'All'
+        },{
             type: 'hour',
             count: 1,
             text: '1hr'
@@ -55,6 +58,10 @@ var Chart = {
             type: 'hour',
             count: 4,
             text: '4hr'
+        },{
+            type: 'day',
+            count: 1,
+            text: '1 day'
         }
         ],
         buttonTheme: { // styles for the buttons
@@ -107,7 +114,12 @@ var Chart = {
             hour: '%d<br/>%H:%M',
             day: '%m-%d',
             week: '%m-%d',
-          }
+          },
+          minRange: 180 * 1000
+      },
+
+      yAxis: {
+        enabled: false
       },
 
       series: [{
