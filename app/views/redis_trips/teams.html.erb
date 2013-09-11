@@ -1,8 +1,0 @@
-<div class='panel'>
-  <h2>Choose a team for more information</h2>
-  <% @teams.each do |team| %>
-    <ul>
-      <p><h3><%= link_to "#{team.hashtag}", search_term_path(team) %></h3></p>
-    </ul>
-  <% end %>
-</div>
