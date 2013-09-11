@@ -4,11 +4,12 @@
   <title>Sports Spike</title>
   <%= stylesheet_link_tag    "application", media: "all"%>
   <%= csrf_meta_tags %>
-  <%= javascript_include_tag 'application' %>
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <%= javascript_include_tag 'application' %>
 </head>
   <body>
-    <img alt="full screen background image" src="assets/candlestick.png" id="full-screen-background-image" /> 
+    <img alt="full screen background image" src="/assets/candlestick.png" id="full-screen-background-image" /> 
       <div id="wrapper">
 	     <div class="row">
   	     <div class="small-12 large-centered columns">
@@ -23,11 +24,6 @@
             <a href="https://facebook.com"><%= image_tag 'facebook.png', size: '24x24' %></a>
             <a href="https://twitter.com"><%= image_tag 'twitter.png', size: '24x24' %></a>
         	  <a href="https://github.com"><%= image_tag 'github.png', size: '24x24' %></a>
-
-
-            <i class="foundicon-[icon]"></i>
-
-
       	  </div>
       	  <div>
             <a href="mailto:ishwar.nagar@gmail.com">Ishwar, </a>

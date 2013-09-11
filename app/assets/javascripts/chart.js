@@ -4,8 +4,7 @@ Highcharts.setOptions({
       }
 });
 
-
-var Chart = {
+var MyChart = {
 
   pollTime: 60000,
 
@@ -20,12 +19,15 @@ var Chart = {
   },
 
   render: function() {
-    $.get('redis_trips/render_data', function(data) {
+    var pathname = window.location.pathname;
+    var id = pathname[pathname.length - 1];
+    console.log(id);
+    $.get('/search_terms/' + id, function(data) {
       var newData = [];
       var data = $.each(data, function(k, coordinate) {
         newData.push([Date.parse(coordinate[0]), coordinate[1]]);
       });
-      Chart.draw(newData);
+      MyChart.draw(newData);
     });
   },
 
@@ -34,9 +36,8 @@ var Chart = {
       chart: {
         renderTo: 'chart'
       },
-
       title: {
-        text: 'The Pulse of Patriots Nation'
+        text: null
       },
       navigator: {
         enabled: true,
@@ -134,6 +135,4 @@ var Chart = {
   }
 }
 
-$(document).ready(function() {
-  Chart.init();
-})
+
