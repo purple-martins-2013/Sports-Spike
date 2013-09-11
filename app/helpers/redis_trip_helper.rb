@@ -1,11 +1,11 @@
 module RedisTripHelper
 
   def sufficient_redis_trips_in_database(time_period)
-     search_terms_redis_trip_count > time_period
+     search_terms_redis_trip_count >= time_period
   end
 
   def first_time_calculating_field(time_period)
-    search_terms_redis_trip_count == time_period + 1
+    search_terms_redis_trip_count == time_period
   end
 
   def search_terms_redis_trip_count
