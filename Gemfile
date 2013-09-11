@@ -12,8 +12,8 @@ gem 'chronic'
 gem 'redis-rails'
 gem 'acts_as_reportable'
 gem 'redis'
-gem 'chart-js-rails'
 gem 'rails_12factor'
+gem 'jquery-rails'
 
 group :test, :development do
   gem 'rspec-rails'
