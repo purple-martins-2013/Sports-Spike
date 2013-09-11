@@ -1,9 +1,3 @@
-Highcharts.setOptions({
-      global: {
-        useUTC: false
-      }
-});
-
 function makeTweetGraph() {
   var myChart = {
 
@@ -23,9 +17,9 @@ function makeTweetGraph() {
       var pathname = window.location.pathname;
       var id = pathname[pathname.length - 1];
       console.log(id);
-      $.get('/search_terms/' + id, function(data) {
+      $.get('/search_terms/' + id, function(stats) {
         var newData = [];
-        var data = $.each(data, function(k, coordinate) {
+        $.each(stats.tweets_by_time, function(k, coordinate) {
           newData.push([Date.parse(coordinate[0]), coordinate[1]]);
         });
         myChart.draw(newData);
@@ -144,7 +138,7 @@ function makeTweetGraph() {
 function makePulseChart() {
  var pulseChart = {
 
-    pulseTime: 60000,
+    pulseTime: 6000,
 
     init: function() {
       this.render();
@@ -159,18 +153,22 @@ function makePulseChart() {
     render: function() {
       var pathname = window.location.pathname;
       var id = pathname[pathname.length - 1];
-      console.log(id);
-      $.get('/search_terms/' + id, function(data) {
-        var newData = [];
-        var data = $.each(data, function(k, coordinate) {
-          newData.push([Date.parse(coordinate[0]), coordinate[1]]);
-        });
-        pulseChart.draw(newData);
+      $.get('/search_terms/' + id, function(stats) {
+        var pulseData = stats.fan_pulse
+        pulseChart.draw(pulseData);
       });
     },
 
     draw: function(data) {
-      new Highcharts.Chart({
+      console.log(data)
+      if (!this.chart) {
+        this.createChart()
+      }
+      this.chart.series[0].points[0].update(data, false)
+      this.chart.redraw();
+    },
+    createChart: function() {
+      this.chart = new Highcharts.Chart({
         chart: {
             renderTo: 'container',
             type: 'gauge',
@@ -195,45 +193,48 @@ function makePulseChart() {
             startAngle: -45,
             endAngle: 45,
             background: null,
-            center: ['25%', '145%'],
+            center: ['50%', '140%'],
             size: 300
         }],
         yAxis: [{
             min: -20,
-            max: 6,
+            max: 40,
             minorTickPosition: 'outside',
             tickPosition: 'outside',
+            tickInterval: 5,
             labels: {
                 rotation: 'auto',
                 distance: 20
             },
             plotBands: [{
-                from: 0,
-                to: 6,
+                from: 30,
+                to: 40,
                 color: '#C02316',
                 innerRadius: '100%',
                 outerRadius: '105%'
             }],
             pane: 0,
             title: {
-                text: 'VU<br/><span style="font-size:8px">Get Excited</span>',
+                text: 'Get Excited',
                 y: -40
             },
         }],
         plotOptions: {
           gauge: {
             dataLabels: {
-              enable: false
+              enable: true
             },
           },
           dial: {
             radius: '100%'
           }
         },
-        series: {
-            data: [-20],
-            yAxis: 0
-        }
+        series: [{
+            data: [0],
+            dataLabels: {
+              y: -90
+            }
+        }]
 
       });
     }

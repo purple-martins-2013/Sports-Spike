@@ -15,4 +15,10 @@
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
 
-
+$(document).ready(function() {
+  Highcharts.setOptions({
+      global: {
+        useUTC: false
+      }
+  });
+});
