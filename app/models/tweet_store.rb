@@ -6,10 +6,10 @@ require 'tweetstream'
 
 class TweetStore
 
-  INTERESTING_MOMENT = 10
+  INTERESTING_MOMENT = 5
 
   def initialize(search_terms)
-    @interval = 30
+    @interval = 60
     @search_terms = search_terms
     @start_time = Time.new
     @db = REDIS
