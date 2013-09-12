@@ -1,17 +1,15 @@
 class RedisTripsController < ApplicationController
-  
 
   def index
-  end
-  
-  def teams
     @trips = RedisTrip.all
     @teams = SearchTerm.all
   end
 
-
-  def team_pulse
-    @trips = RedisTrip.where(search_term_id: params[:search_term_id])
-    @team_name = @trips.first.search_term.hashtag
+  def teams
+    team_one = SearchTerm.find_by_hashtag(params[:team_one])
+    p team_one
+    team_two = SearchTerm.find_by_hashtag(params[:team_two])
+    p team_two
+    redirect_to search_term_path(team_one, team_two)
   end
 end

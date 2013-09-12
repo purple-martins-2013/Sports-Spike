@@ -1,8 +1,19 @@
 <div class='panel'>
-  <%= @team_name %></div>
-<div class='panel' id="chart"></div>
+  <%= @team_name %>
+  <br>  
+  <div id="chart"></div>
+  <hr>
+  <div id="container" style="width: 600px; height: 300px; margin: 0 auto"></div>
+</div>
 <script>
+  var teamOneId = <%= @team_one_id %>;
+  var teamTwoId = <%= @team_two_id %>;
+  var teamOneName = "<%= @team_one_name %>";
+  var teamTwoName = "<%= @team_two_name %>";
   $(document).ready(function() {
-    MyChart.init();
+    var chart1 = makeTweetGraph();
+    chart1.init()
+    var chart2 = makePulseChart();
+    chart2.init()
   });
 </script>

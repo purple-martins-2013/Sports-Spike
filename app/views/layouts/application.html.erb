@@ -2,36 +2,86 @@
 <html>
 <head>
   <title>Sports Spike</title>
-  <%= stylesheet_link_tag    "application", media: "all"%>
+  <link href='http://fonts.googleapis.com/css?family=Gudea|Josefin+Sans|Cinzel|Quattrocento' rel='stylesheet' type='text/css'>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= stylesheet_link_tag "application", media: "all"%>
   <%= csrf_meta_tags %>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <%= javascript_include_tag 'application' %>
+  <script src="http://code.highcharts.com/stock/highstock.js"></script>
+  <script src="http://code.highcharts.com/highcharts-more.js"></script>
+  <script src="http://code.highcharts.com/modules/exporting.js"></script>
 </head>
   <body>
     <%= image_tag 'candlestick.png', alt: "full screen background image", id: "full-screen-background-image" %> 
-      <div id="wrapper">
-	     <div class="row">
-  	     <div class="small-12 large-centered columns">
-  	  	  <%= render 'shared/header' %>
-		      <%= yield %>
-		     </div>
-	     </div>
-	    </div>
-	    <div id="footer">
-	  	  <footer>
-     	    <div id="social-icons">
-            <a href="https://facebook.com"><%= image_tag 'facebook.png', size: '24x24' %></a>
-            <a href="https://twitter.com"><%= image_tag 'twitter.png', size: '24x24' %></a>
-        	  <a href="https://github.com"><%= image_tag 'github.png', size: '24x24' %></a>
-      	  </div>
-      	  <div>
-            <a href="mailto:ishwar.nagar@gmail.com">Ishwar, </a>
-            <a href="mailto:stharlow@gmail.com">Steve, </a>
-            <a href="mailto:chapman.snowden@gmail.com">Chapman, </a>
-            <a href="mailto:mehagel65@gmai.com">Mark</a>
+
+    <!-- NAV BAR -->
+  <div class="fixed contains-to-grid">
+    <nav class="top-bar">
+      <!-- Title Area -->
+
+      <ul class="left">
+        <li class='name'>
+          <h1><a href ='/'>SportsSpike</a></h1>
+        </li>
+
+      </ul>
+        <section class="top-bar-section">
+          <ul class="right">
+            <li class='divider'></li>
+            <li class><a href="/">SMS Alerts</a></li>
+            <li class='divider'></li>
+            <li class><a href="/">Back</a></li>
+          </ul>
+        </section>
+      </div>
+     </div>
+    </nav>
+  </div>
+
+  <!-- BODY -->
+	    <div class="row">
+        <div class='large-12 columns'>
+          <div class'row'>
+             <div class='large-3 columns end' id="left-panel">
+              <div class='side-nav'>
+
+                <%=yield :sidenav%>
+
+              </div>
+            </div>
+  	       <div class="large-9 columns">
+
+		        <%=yield%>
+
+            <%=yield :main_body_two%>
+
+
+		       </div>
           </div>
-    	  </footer>
-  	  </div>
+	      </div>
+      </div>
+      <!-- FOOTER -->
+    <div class="row">
+      <div class='large-12 columns'>
+	     <div class="zurb-footer-bottom">
+	  	    <footer>
+     	      <div id="social-icons">
+              <a href="https://www.facebook.com/groups/SFJuly15thDevBootcamp/" target='_blank'><%= image_tag 'iconmonstr-facebook-4-icon.png', size: '42x42' %></a>
+              <a href="http://sportspike.herokuapp.com/" target='_blank'><%= image_tag 'iconmonstr-stream-icon.png', size: '42x42' %></a>
+        	    <a href="https://github.com/purple-martins-2013/Sports-Spike" target='_blank'><%= image_tag 'iconmonstr-github-9-icon.png', size: '42x42' %></a>
+              <a href="mailto:ishwar.nagar@gmail.com; stharlow@gmail.com; chapman.snowden@gmail.com; mehagel65@gmail.com"><%= image_tag 'iconmonstr-email-9-icon.png', size: '42x42' %></a>
+      	    </div>
+      	    <div id='emails'>
+              <a href="mailto:ishwar.nagar@gmail.com"> Ishwar, </a>
+              <a href="mailto:stharlow@gmail.com">Steve, </a>
+              <a href="mailto:chapman.snowden@gmail.com">Chapman, </a>
+              <a href="mailto:mehagel65@gmail.com">Mark</a>
+            </div>
+    	    </footer>
+  	    </div>
+      </div>
+    </div>
   </body>
 </html>
