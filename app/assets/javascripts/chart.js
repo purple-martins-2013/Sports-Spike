@@ -135,14 +135,14 @@ function makeTweetGraph() {
 
         series: [{
     
-            name: 'Team One',
+            name: teamOneName,
             data: data1,
             threshold: null,
             dataGrouping: {
               enabled: true
             },
             },{
-            name: 'Team Two',
+            name: teamTwoName,
             data: data2,
             threshold: null,
             dataGrouping: {
