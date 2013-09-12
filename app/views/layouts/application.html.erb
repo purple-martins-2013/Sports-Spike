@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Sports Spike</title>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag "application", media: "all"%>
   <%= csrf_meta_tags %>
 
@@ -21,9 +22,12 @@
         <li class='name'>
           <h1><a href ='/'>SportsSpike</a></h1>
         </li>
+
       </ul>
         <section class="top-bar-section">
           <ul class="right">
+            <li class='divider'></li>
+            <li class><a href="/">SMS Alerts</a></li>
             <li class='divider'></li>
             <li class><a href="/">Back</a></li>
           </ul>

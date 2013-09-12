@@ -6,6 +6,7 @@ html, body {
   width: 100%;
   padding-top: 30px;
   margin: 0;
+
 }
 
 #full-screen-background-image {
@@ -19,6 +20,10 @@ html, body {
   left: 0;
 }
 
+.top-bar {
+  opacity: 0.45;
+}
+
 #wrapper {
   position: relative;
   width: 800px;
@@ -27,18 +32,33 @@ html, body {
   color: #333;
 }
 .panel {
-    opacity: 0.65;
-    color: #333;
+  opacity: 0.55;
+  color: #333;
+  font-family: 'Gudea', sans-serif;
 }
 
-h1 {
-    text-align: center;
+#left-panel {
+  font-size: 95%;
+  text-align: center;
+  font-family: 'Gudea', sans-serif;
   }
 
-#left-panel {
-     font-size: 95%
-  }
+#social-icons {
+ padding-left: 40px;
+ }
 
 #footer {
-  font-size: 85%
+  padding-left: 25px;
+  font-size: 80%;
+  font-family: 'Gudea', sans-serif;
   }
+
+
+
+a{
+  font-family: 'Gudea', sans-serif;
+}
+ 
+h4{
+  font-family: 'Gudea', sans-serif;
+ }
