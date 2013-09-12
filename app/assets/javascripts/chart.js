@@ -14,9 +14,7 @@ function makeTweetGraph() {
     },
 
     render: function() {
-      var pathname = window.location.pathname;
-      var id = pathname[pathname.length - 1];
-      $.get('/search_terms/' + id, function(stats) {
+      $.get('/team_pulse/' + teamOneId + '/' + teamTwoId, function(stats) {
         console.log(stats)
         var teamOne = [];
         $.each(stats.tweets_by_team_one, function(k, coordinate) {
@@ -38,7 +36,7 @@ function makeTweetGraph() {
           defaultSeriesType: 'spline'
         },
         title: {
-          text: null
+          text: teamOneName + ' vs ' + teamTwoName
         },
         navigator: {
           enabled: true,
@@ -175,9 +173,7 @@ function makePulseChart() {
     },
 
     render: function() {
-      var pathname = window.location.pathname;
-      var id = pathname[pathname.length - 1];
-      $.get('/search_terms/' + id, function(stats) {
+      $.get('/team_pulse/' + teamOneId + '/' + teamTwoId, function(stats) {
         var pulseDataTeamOne = stats.fan_pulse_team_one;
         var pulseDataTeamTwo = stats.fan_pulse_team_two;
         pulseChart.draw(pulseDataTeamOne, pulseDataTeamTwo);
@@ -287,9 +283,11 @@ function makePulseChart() {
         },
         series: [{
             data: data1,
+            name: teamOneName,
             yAxis: 0
             }, {
             data: data2,
+            name: teamTwoName,
             yAxis: 1
         }]
 
@@ -299,3 +297,4 @@ function makePulseChart() {
 
   return pulseChart
 }
+
