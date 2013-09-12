@@ -4,7 +4,7 @@
     <li class='divider'></li>
       <ul>
         <% @teams.each do |team| %>
-      	  <%= link_to "#{team.hashtag}", search_term_path(team) %><input class='radio' type="radio" name="team1" value="team1" style='float: right;'> <input class='radio' type="radio" name="team2" value="team2"style="float: right;">
+      	  <%= link_to "#{team.hashtag}", search_term_path(team) %>
           <li class='divider'></li>
       	<% end %>
       </ul>
