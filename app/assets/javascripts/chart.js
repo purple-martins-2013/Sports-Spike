@@ -16,17 +16,20 @@ function makeTweetGraph() {
     render: function() {
       var pathname = window.location.pathname;
       var id = pathname[pathname.length - 1];
-      console.log(id);
       $.get('/search_terms/' + id, function(stats) {
-        var newData = [];
-        $.each(stats.tweets_by_time, function(k, coordinate) {
-          newData.push([Date.parse(coordinate[0]), coordinate[1]]);
+        var teamOne = [];
+        $.each(stats.tweets_by_team_one, function(k, coordinate) {
+          teamOne.push([Date.parse(coordinate[0]), coordinate[1]]);
         });
-        myChart.draw(newData);
+        var teamTwo = [];
+        $.each(stats.tweets_by_team_two, function(k, coordinate) {
+          teamTwo.push([Date.parse(coordinate[0]), coordinate[1]]);
+        });
+        myChart.draw(teamOne, teamTwo);
       });
     },
 
-    draw: function(data) {
+    draw: function(data1, data2) {
       new Highcharts.Chart({
         chart: {
           renderTo: 'chart',
@@ -121,7 +124,14 @@ function makeTweetGraph() {
         series: [{
     
             name: 'Tweets Per Minute',
-            data: data,
+            data: data1,
+            threshold: null,
+            dataGrouping: {
+              enabled: true
+            },
+            },{
+            name: 'Tweets Per Minute',
+            data: data2,
             threshold: null,
             dataGrouping: {
               enabled: true
@@ -138,7 +148,7 @@ function makeTweetGraph() {
 function makePulseChart() {
  var pulseChart = {
 
-    pulseTime: 6000,
+    pulseTime: 60000,
 
     init: function() {
       this.render();
@@ -154,20 +164,24 @@ function makePulseChart() {
       var pathname = window.location.pathname;
       var id = pathname[pathname.length - 1];
       $.get('/search_terms/' + id, function(stats) {
-        var pulseData = stats.fan_pulse
-        pulseChart.draw(pulseData);
+        console.log(stats)
+        var pulseDataTeamOne = stats.fan_pulse_team_one;
+        var pulseDataTeamTwo = stats.fan_pulse_team_two;
+        pulseChart.draw(pulseDataTeamOne, pulseDataTeamTwo);
       });
     },
 
-    draw: function(data) {
-      console.log(data)
-      if (!this.chart) {
-        this.createChart()
-      }
-      this.chart.series[0].points[0].update(data, false)
-      this.chart.redraw();
-    },
-    createChart: function() {
+    draw: function(data1, data2) {
+    //   if (!this.chart) {
+    //     this.createChart()
+    //   }
+    //   this.chart.series[0].points[0].update(data1, false)
+    //   this.chart.series[1].points[0].update(data2, false)
+    //   this.chart.redraw();
+    // },
+    // createChart: function() {
+      console.log(data1)
+      console.log(data2)
       this.chart = new Highcharts.Chart({
         chart: {
             renderTo: 'container',
@@ -193,7 +207,13 @@ function makePulseChart() {
             startAngle: -45,
             endAngle: 45,
             background: null,
-            center: ['50%', '140%'],
+            center: ['25%', '145%'],
+            size: 300
+          },{
+            startAngle: -45,
+            endAngle: 45,
+            background: null,
+            center: ['75%', '145%'],
             size: 300
         }],
         yAxis: [{
@@ -215,10 +235,33 @@ function makePulseChart() {
             }],
             pane: 0,
             title: {
-                text: 'Get Excited',
+                text: 'Team One',
                 y: -40
+            }
+        }, {
+            min: 0,
+            max: 15,
+            minorTickPosition: 'outside',
+            tickPosition: 'outside',
+            tickInterval: 5,
+            labels: {
+                rotation: 'auto',
+                distance: 20
             },
+            plotBands: [{
+                from: 12,
+                to: 15,
+                color: '#C02316',
+                innerRadius: '100%',
+                outerRadius: '105%'
+            }],
+            pane: 1,
+            title: {
+                text: 'Team Two',
+                y: -40
+            }
         }],
+
         plotOptions: {
           gauge: {
             dataLabels: {
@@ -230,10 +273,11 @@ function makePulseChart() {
           }
         },
         series: [{
-            data: [0],
-            dataLabels: {
-              y: -90
-            }
+            data: data1,
+            yAxis: 0
+            }, {
+            data: data2,
+            yAxis: 1
         }]
 
       });
