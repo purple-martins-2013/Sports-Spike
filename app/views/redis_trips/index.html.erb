@@ -1,8 +1,16 @@
-<div class='panel'>
-  <h2>Choose a team for more information</h2>
-  <% @teams.each do |team| %>
-    <ul>
-      <p><h3><%= link_to "#{team.hashtag}", search_term_path(team) %></h3></p>
-    </ul>
-  <% end %>
+<div class='panel' id='left-panel'>
+  <h4>Choose your Teams</h4>
+  <ul>
+    <%= form_for :redis_trips, url: redis_trips_teams_path, method: :get do %>
+      <% @teams.each do |team| %>
+          <p><%= team.hashtag %>
+            <%= radio_button_tag(:team_one, "#{team.hashtag}") %>
+            <% label_tag(:team_one) %>
+            <%= radio_button_tag(:team_two, "#{team.hashtag}") %>
+            <% label_tag(:team_two) %>
+          </p>
+      <% end %>
+      <%= submit_tag('Get Data!') %>
+    <% end %>
+  </ul>
 </div>
