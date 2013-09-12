@@ -30,13 +30,15 @@ class TweetStore
         unless redis_trip.histogram.nil?
           p 'here 3'
           if redis_trip.histogram > INTERESTING_MOMENT
-            Spike.create(redis_trip: redis_trip) 
+            spike = Spike.create(redis_trip: redis_trip) 
             p 'here 4'
-            TWILIO.account.sms.messages.create(
-              :from => "+14155084988",
-              :to => '+14156565920',
-              :body => "Update from SportsSpike: Something just happened with the hashtag #{term}"
-            )
+            term.phone_numbers.each do |pn|
+              TWILIO.account.sms.messages.create(
+                :from => "+14155084988",
+                :to => "+1#{pn.number}",
+                :body => "Update from SportsSpike: Something just happened with the hashtag #{term}"
+              )
+            end
           end
         end
         p 'here 5'
