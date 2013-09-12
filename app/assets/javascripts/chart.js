@@ -29,14 +29,15 @@ function makeTweetGraph() {
     draw: function(data) {
       new Highcharts.Chart({
         chart: {
-          renderTo: 'chart'
+          renderTo: 'chart',
+          type: 'areaspline'
         },
         title: {
           text: null
         },
         navigator: {
           enabled: true,
-          adaptToUpdatedData: false
+          adaptToUpdatedData: true
 
         },
 
@@ -100,9 +101,7 @@ function makeTweetGraph() {
         legend: {
           enabled: false
         },
-        plotOptions: {
-          cropThreshold:10000
-        },
+
         xAxis: {
             type: 'datetime',
             dateTimeLabelFormats: {
@@ -115,22 +114,23 @@ function makeTweetGraph() {
         },
 
         yAxis: {
-          enabled: false
+          enabled: true,
+          min: 0
         },
 
         series: [{
     
             name: 'Tweets Per Minute',
             data: data,
+            threshold: null,
             dataGrouping: {
-              enabled: false
+              enabled: true
             }
           }]
       });
-
     }
   }
-
+  
   return myChart
 }
 
