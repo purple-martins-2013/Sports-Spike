@@ -33,7 +33,8 @@ function makeTweetGraph() {
       new Highcharts.Chart({
         chart: {
           renderTo: 'chart',
-          type: 'areaspline'
+          type: 'areaspline',
+          defaultSeriesType: 'spline'
         },
         title: {
           text: null
@@ -95,7 +96,18 @@ function makeTweetGraph() {
 
         },
         
-
+        plotOptions: {
+          series: {
+            marker: {
+              enabled: false,
+              states: {
+                hover: {
+                  enabled: true
+                }
+              }
+            }
+          }
+        },
         scrollbar: {
           enabled: true,
           liveRedraw: true
@@ -172,17 +184,17 @@ function makePulseChart() {
     },
 
     draw: function(data1, data2) {
-    //   if (!this.chart) {
-    //     this.createChart()
+    //   if (!pulseChart.chart) {
+    //     pulseChart.createChart()
     //   }
-    //   this.chart.series[0].points[0].update(data1, false)
-    //   this.chart.series[1].points[0].update(data2, false)
-    //   this.chart.redraw();
+    //   else 
+    //   chart.series[0].data[0].update.(data1);
+    //   chart.series[1].data[0].update.(data2);
+    //   chart.redraw();
     // },
-    // createChart: function() {
-      console.log(data1)
-      console.log(data2)
-      this.chart = new Highcharts.Chart({
+    // createChart: function(data1, data2) {
+    //   this.chart = new Highcharts.Chart({
+        new Highcharts.Chart({
         chart: {
             renderTo: 'container',
             type: 'gauge',
