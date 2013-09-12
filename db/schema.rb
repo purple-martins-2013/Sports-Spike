@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130909225006) do
+ActiveRecord::Schema.define(version: 20130912171253) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -23,14 +26,23 @@ ActiveRecord::Schema.define(version: 20130909225006) do
     t.integer "search_term_id"
   end
 
+  create_table "phone_numbers", force: true do |t|
+    t.string "number"
+  end
+
+  create_table "phone_numbers_search_terms", force: true do |t|
+    t.integer "phone_number_id"
+    t.integer "search_term_id"
+  end
+
   create_table "redis_trips", force: true do |t|
-    t.integer  "tweet_count"
     t.integer  "short_ema"
     t.integer  "long_ema"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "macd"
     t.integer  "signal_line"
+    t.integer  "tweet_count"
     t.integer  "histogram"
     t.integer  "search_term_id"
   end
