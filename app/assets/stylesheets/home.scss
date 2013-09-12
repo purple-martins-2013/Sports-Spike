@@ -4,9 +4,8 @@
 html, body {
   height: 100%;
   width: 100%;
-  padding-top: 30px;
+  padding-top: 40px;
   margin: 0;
-
 }
 
 #full-screen-background-image {
@@ -31,6 +30,12 @@ html, body {
   margin: 100px auto;
   color: #333;
 }
+
+h4{
+  text-align: center;
+  font-family: 'Gudea', sans-serif;
+ }
+
 .panel {
   opacity: 0.55;
   color: #333;
@@ -39,28 +44,20 @@ html, body {
 
 #left-panel {
   font-size: 95%;
-  text-align: center;
+  text-align: left;
+  font-family: 'Gudea', sans-serif;
+  }
+
+.zurb-footer-bottom {
+  padding-left: 30px;
+  font-size: 80%;
   font-family: 'Gudea', sans-serif;
   }
 
 #social-icons {
  padding-left: 40px;
  }
-
-#footer {
-  padding-left: 30px;
-  font-size: 80%;
-  font-family: 'Gudea', sans-serif;
-  }
-
-a{
-  font-family: 'Gudea', sans-serif;
-}
  
-h4{
-  font-family: 'Gudea', sans-serif;
+ a{
+ color: black;
  }
-
-#head{
-  padidng-left:30px;
-}
