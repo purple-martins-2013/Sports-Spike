@@ -142,7 +142,7 @@ function makeTweetGraph() {
               enabled: true
             },
             },{
-            name: teamOneName,
+            name: teamTwoName,
             data: data2,
             threshold: null,
             dataGrouping: {

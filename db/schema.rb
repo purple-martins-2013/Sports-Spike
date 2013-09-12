@@ -31,13 +31,13 @@ ActiveRecord::Schema.define(version: 20130912171253) do
   end
 
   create_table "redis_trips", force: true do |t|
+    t.integer  "tweet_count"
     t.integer  "short_ema"
     t.integer  "long_ema"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "macd"
     t.integer  "signal_line"
-    t.integer  "tweet_count"
     t.integer  "histogram"
     t.integer  "search_term_id"
   end
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20130912171253) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "redis_trip_id"
+    t.string   "game_status"
   end
 
 end
