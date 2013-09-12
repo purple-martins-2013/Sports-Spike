@@ -15,14 +15,5 @@ describe RedisTripsController do
       get :index
       expect(assigns(:teams)).to eq([search_term])
     end
-  end
-
-  describe 'redis_trips#team_pulse' do
-    xit "displays the correct page" do
-      search_term
-      get ':team_pulse', { id: search_term.id }
-      expect(assigns(:search_term)).to eq search_term
-    end
-  end
-  
+  end  
 end
