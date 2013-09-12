@@ -48,6 +48,7 @@ function makeTweetGraph() {
         rangeSelector: {
           enabled: true,
           inputEnabled: false,
+          buttonSpacing: 1,
           buttons: [{
               type: 'all',
               text: 'All'
@@ -62,11 +63,11 @@ function makeTweetGraph() {
           },{
               type: 'day',
               count: 1,
-              text: '1 day'
+              text: 'Day'
           }
           ],
           buttonTheme: { // styles for the buttons
-            fill: 'none',
+            fill: '#D80834',
             stroke: 'none',
             'stroke-width': 0,
             r: 8,
@@ -114,7 +115,7 @@ function makeTweetGraph() {
         },
 
         legend: {
-          enabled: false
+          enabled: true,
         },
 
         xAxis: {
@@ -130,19 +131,20 @@ function makeTweetGraph() {
 
         yAxis: {
           enabled: true,
-          min: 0
+          min: 0,
+
         },
 
         series: [{
     
-            name: 'Tweets Per Minute',
+            name: 'Team One',
             data: data1,
             threshold: null,
             dataGrouping: {
               enabled: true
             },
             },{
-            name: 'Tweets Per Minute',
+            name: 'Team Two',
             data: data2,
             threshold: null,
             dataGrouping: {
@@ -176,7 +178,6 @@ function makePulseChart() {
       var pathname = window.location.pathname;
       var id = pathname[pathname.length - 1];
       $.get('/search_terms/' + id, function(stats) {
-        console.log(stats)
         var pulseDataTeamOne = stats.fan_pulse_team_one;
         var pulseDataTeamTwo = stats.fan_pulse_team_two;
         pulseChart.draw(pulseDataTeamOne, pulseDataTeamTwo);
