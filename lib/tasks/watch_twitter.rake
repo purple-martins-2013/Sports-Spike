@@ -1,7 +1,9 @@
 namespace :jobs do
   task :work => :environment do
+    p 'here in log'
     teams = SearchTerm.all
     store = TweetStore.new(teams)
+    p ENV['TWEETSTREAM_CONSUMER_KEY']
     TweetStream::Client.new.track(teams.pluck('hashtag').join(', ')) do |status|
       puts 'TweetStream initialized successfully'
       tags = []
