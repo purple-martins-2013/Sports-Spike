@@ -4,8 +4,9 @@
 html, body {
   height: 100%;
   width: 100%;
-  padding: 0;
+  padding-top: 40px;
   margin: 0;
+  font-family: 'Jura', sans-serif;
 }
 
 #full-screen-background-image {
@@ -26,18 +27,38 @@ html, body {
   margin: 100px auto;
   color: #333;
 }
+
+h4{
+  text-align: center;
+  
+
+ }
+
 .panel {
-    opacity: 0.75;
-    color: #333;
+  opacity: 0.55;
+  color: #333;
+  font-family: 'Jura', sans-serif;
+
 }
 
-#footer {
+#left-panel {
+  font-size: 95%;
   text-align: left;
-  height: 30px;
-  bottom: 0px;
-  font-size: 120%;
+  
+
   }
 
-  h1 {
-    text-align: center;
+.zurb-footer-bottom {
+  padding-left: 20px;
+  font-size: 80%;
+
   }
+ 
+ a{
+ font-family: 'Jura', sans-serif;
+ color: black;
+ }
+
+ p{
+ font-family: 'Jura', sans-serif;
+ }
