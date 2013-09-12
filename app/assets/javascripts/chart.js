@@ -17,6 +17,7 @@ function makeTweetGraph() {
       var pathname = window.location.pathname;
       var id = pathname[pathname.length - 1];
       $.get('/search_terms/' + id, function(stats) {
+        console.log(stats)
         var teamOne = [];
         $.each(stats.tweets_by_team_one, function(k, coordinate) {
           teamOne.push([Date.parse(coordinate[0]), coordinate[1]]);
@@ -67,7 +68,6 @@ function makeTweetGraph() {
           }
           ],
           buttonTheme: { // styles for the buttons
-            fill: '#D80834',
             stroke: 'none',
             'stroke-width': 0,
             r: 8,
@@ -213,7 +213,7 @@ function makePulseChart() {
         },
     
         title: {
-            text: 'Patriot Nation Excitement'
+            text: 'Fan Excitement'
         },
         
         pane: [{

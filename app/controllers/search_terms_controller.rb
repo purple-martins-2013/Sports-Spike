@@ -11,7 +11,7 @@ class SearchTermsController < ApplicationController
       return
     end
     Time.zone="US/Pacific"
-    params[:chap] = [2,17]
+    params[:chap] = [17,2]
 
 
     team_one_data = RedisTrip.where(search_term_id: params[:chap][0]).order("created_at DESC").map do |trip|
