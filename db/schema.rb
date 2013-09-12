@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20130909225006) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "events", force: true do |t|
     t.string   "name"
     t.datetime "date"
@@ -24,13 +27,13 @@ ActiveRecord::Schema.define(version: 20130909225006) do
   end
 
   create_table "redis_trips", force: true do |t|
-    t.integer  "tweet_count"
     t.integer  "short_ema"
     t.integer  "long_ema"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "macd"
     t.integer  "signal_line"
+    t.integer  "tweet_count"
     t.integer  "histogram"
     t.integer  "search_term_id"
   end

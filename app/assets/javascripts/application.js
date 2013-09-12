@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
+$(document).foundation();
 
 $(document).ready(function() {
   Highcharts.setOptions({
@@ -23,5 +24,5 @@ $(document).ready(function() {
   });
 });
 
-$(document).foundation();
+
 
