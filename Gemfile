@@ -10,6 +10,7 @@ gem "compass-rails", "~> 2.0.alpha.0"
 gem 'sass-rails'
 gem 'zurb-foundation', '~> 4.0.0'
 gem 'chronic'
+gem 'twilio-ruby'
 gem 'redis-rails'
 gem 'acts_as_reportable'
 gem 'redis'

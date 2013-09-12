@@ -14,4 +14,4 @@ test:
   host: localhost
   pool: 5
   username: 
-  password:
+  password: 'genericpassword'

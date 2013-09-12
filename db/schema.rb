@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130909225006) do
+ActiveRecord::Schema.define(version: 20130912043213) do
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20130909225006) do
   create_table "events_search_terms", force: true do |t|
     t.integer "event_id"
     t.integer "search_term_id"
+  end
+
+  create_table "phone_numbers", force: true do |t|
+    t.string "number"
+  end
+
+  create_table "phone_numbers_search_terms", force: true do |t|
+    t.integer "phone_numbers_id"
+    t.integer "search_terms_id"
   end
 
   create_table "redis_trips", force: true do |t|
