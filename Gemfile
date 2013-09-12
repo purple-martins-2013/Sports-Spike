@@ -16,6 +16,7 @@ gem 'acts_as_reportable'
 gem 'redis'
 gem 'rails_12factor'
 gem 'jquery-rails'
+gem 'dotenv-rails'
 
 group :test, :development do
   gem 'rspec-rails'

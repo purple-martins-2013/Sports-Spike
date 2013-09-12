@@ -77,9 +77,4 @@ SportsSpike::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  ENV["REDISTOGO_URL"] = 'redis://redistogo:91bc233362f01799527a5f0c9c30859c@koi.redistogo.com:9898/'
-  ENV['TWEETSTREAM_CONSUMER_KEY'] = 'EJboNtzlFa0wX7FNjZtlg'
-  ENV['TWEETSTREAM_CONSUMER_SECRET'] = 'z1n9xc4T8BsLPmnT6bTnTKS75ZmFXm01kpqrzIV4ho'
-  ENV['TWEETSTREAM_OAUTH_TOKEN'] = '1732712186-mzZtp0RcXDKFOKUyek7fv3W1R3x2EuJqPKBF9Dn'
-  ENV['TWEETSTREAM_OAUTH_SECRET'] = 'oksEY9j5FVrSZc9vWDxr7fdsY9sKsT91TyqKhHV7GxQ'
 end

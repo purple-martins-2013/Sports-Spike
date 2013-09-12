@@ -3,9 +3,6 @@ namespace :jobs do
     p 'here in log'
     teams = SearchTerm.all
     store = TweetStore.new(teams)
-    ENV.each do |key, var|
-      p key, var if key.include?("TWEET")
-    end
     TweetStream::Client.new.track(teams.pluck('hashtag').join(', ')) do |status|
       puts 'TweetStream initialized successfully'
       tags = []
