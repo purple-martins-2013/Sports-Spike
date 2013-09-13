@@ -27,12 +27,21 @@ class SearchTermsController < ApplicationController
     end
 
     fan_pulse_team_one, fan_pulse_team_two = [], []
-    fan_pulse_team_one << team_one_trips.last.histogram
-    fan_pulse_team_two << team_two_trips.last.histogram
+    if team_one_trips.last.histogram >= 0
+      fan_pulse_team_one << team_one_trips.last.histogram
+    else 
+      fan_pulse_team_one << 0
+    end
 
+    if team_two_trips.last.histogram >= 0
+      fan_pulse_team_two << team_two_trips.last.histogram
+    else
+      fan_pulse_team_two << 0
+    end
+    
     tweets_by_team_one = team_one_data.sort_by { |d| DateTime.parse(d[0]) }
     tweets_by_team_two = team_two_data.sort_by { |d| DateTime.parse(d[0]) }
 
-    render :json => { fan_pulse_team_one: fan_pulse_team_one, fan_pulse_team_two: fan_pulse_team_one, tweets_by_team_one: tweets_by_team_one, tweets_by_team_two: tweets_by_team_two }
+    render :json => { fan_pulse_team_one: fan_pulse_team_one, fan_pulse_team_two: fan_pulse_team_two, tweets_by_team_one: tweets_by_team_one, tweets_by_team_two: tweets_by_team_two }
   end
 end

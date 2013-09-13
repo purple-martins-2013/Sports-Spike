@@ -135,14 +135,14 @@ function makeTweetGraph() {
 
         series: [{
     
-            name: 'Team One',
+            name: teamOneName,
             data: data1,
             threshold: null,
             dataGrouping: {
               enabled: true
             },
             },{
-            name: 'Team Two',
+            name: teamTwoName,
             data: data2,
             threshold: null,
             dataGrouping: {
@@ -181,17 +181,19 @@ function makePulseChart() {
     },
 
     draw: function(data1, data2) {
-    //   if (!pulseChart.chart) {
-    //     pulseChart.createChart()
-    //   }
-    //   else 
-    //   chart.series[0].data[0].update.(data1);
-    //   chart.series[1].data[0].update.(data2);
-    //   chart.redraw();
-    // },
-    // createChart: function(data1, data2) {
-    //   this.chart = new Highcharts.Chart({
-        new Highcharts.Chart({
+      if (!this.chart) {
+        this.createChart(data1, data2)
+      } else {
+        var teamOneUpdate = this.chart.series[0]
+        var teamTwoUpdate = this.chart.series[1]
+        teamOneUpdate.setData(data1, false)
+        teamTwoUpdate.setData(data2, false)
+        this.chart.redraw();
+      }
+    },
+    createChart: function(data1, data2) {
+      console.log(teamTwoName)
+      this.chart = new Highcharts.Chart({
         chart: {
             renderTo: 'container',
             type: 'gauge',
