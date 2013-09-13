@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20130912171253) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "redis_trip_id"
-    t.string   "game_status"
+    t.string "game_status"
   end
 
 end
