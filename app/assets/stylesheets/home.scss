@@ -30,8 +30,6 @@ html, body {
 
 h4{
   text-align: center;
-  
-
  }
 
 .panel {
@@ -43,13 +41,12 @@ h4{
 
 #left-panel {
   font-size: 100%;
-  text-align: right;
+  text-align: left;
   }
 
 .zurb-footer-bottom {
   text-align:center;
   font-size: 80%;
-
   }
  
  a{
@@ -61,6 +58,11 @@ h4{
  font-family: 'Jura', sans-serif;
  }
 
- .button {
-  text-align: center;
+ #left-panel input {
+   float: right;
+    display:inline;
+ }
+.side-nav{
+  padding-top: 0px;
+  padding-bottom: 15px;
  }
