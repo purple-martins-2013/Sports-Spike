@@ -46,15 +46,7 @@ h2{
 #left-panel {
   font-size: 100%;
   text-align: left;
-<<<<<<< HEAD
   }
-=======
-}
-
-#left-panel .radio-button {
-  text-align: right;
-}
->>>>>>> de1f8771a9a8f21cb14e35ca595bfbeb1bb70595
 
 .zurb-footer-bottom {
   text-align:center;
@@ -74,7 +66,10 @@ h2{
    float: right;
     display:inline;
  }
-.side-nav{
-  padding-top: 0px;
-  padding-bottom: 15px;
+
+
+
+.side-nav .button{
+  padding-right: 80px;
+  text-align: right;
  }
