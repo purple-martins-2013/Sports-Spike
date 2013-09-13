@@ -36,7 +36,7 @@ class TweetStore
               TWILIO.account.sms.messages.create(
                 :from => "+14155084988",
                 :to => "+1#{pn.number}",
-                :body => "Update from SportsSpike: Something just happened with the hashtag #{term.hashtag}"
+                :body => "Update from SportsSpike: Something just happened with the #{term} (#{spike.game_status})"
               )
             end
           end
