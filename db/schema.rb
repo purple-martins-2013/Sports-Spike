@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130913034457) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "events_search_terms", force: true do |t|
     t.integer "event_id"
     t.integer "search_term_id"
