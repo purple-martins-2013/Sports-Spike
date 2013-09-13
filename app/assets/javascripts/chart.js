@@ -192,6 +192,7 @@ function makePulseChart() {
       }
     },
     createChart: function(data1, data2) {
+      console.log(teamTwoName)
       this.chart = new Highcharts.Chart({
         chart: {
             renderTo: 'container',
@@ -283,11 +284,11 @@ function makePulseChart() {
           }
         },
         series: [{
-            data: [data1],
+            data: data1,
             name: teamOneName,
             yAxis: 0
             }, {
-            data: [data2],
+            data: data2,
             name: teamTwoName,
             yAxis: 1
         }]
