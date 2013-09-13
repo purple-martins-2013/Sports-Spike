@@ -160,7 +160,7 @@ function makeTweetGraph() {
 function makePulseChart() {
  var pulseChart = {
 
-    pulseTime: 60000,
+    pulseTime: 20000,
 
     init: function() {
       this.render();
@@ -183,15 +183,17 @@ function makePulseChart() {
     draw: function(data1, data2) {
       if (!this.chart) {
         this.createChart()
+      } else {
+        var teamOneUpdate = this.chart.series[0]
+        var teamTwoUpdate = this.chart.series[1]
+        teamOneUpdate.setData(data1, false)
+        teamTwoUpdate.setData(data2, false)
+        this.chart.redraw();
       }
-      else 
-      this.chart.series[0].data[0].update.(data1)
-      this.chart.series[1].data[0].update.(data2)
-      this.chart.redraw();
     },
     createChart: function(data1, data2) {
+      console.log("we are creating a new chart")
       this.chart = new Highcharts.Chart({
-        // new Highcharts.Chart({
         chart: {
             renderTo: 'container',
             type: 'gauge',
