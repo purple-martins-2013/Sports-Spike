@@ -181,17 +181,17 @@ function makePulseChart() {
     },
 
     draw: function(data1, data2) {
-    //   if (!pulseChart.chart) {
-    //     pulseChart.createChart()
-    //   }
-    //   else 
-    //   chart.series[0].data[0].update.(data1);
-    //   chart.series[1].data[0].update.(data2);
-    //   chart.redraw();
-    // },
-    // createChart: function(data1, data2) {
-    //   this.chart = new Highcharts.Chart({
-        new Highcharts.Chart({
+      if (!this.chart) {
+        this.createChart()
+      }
+      else 
+      this.chart.series[0].data[0].update.(data1)
+      this.chart.series[1].data[0].update.(data2)
+      this.chart.redraw();
+    },
+    createChart: function(data1, data2) {
+      this.chart = new Highcharts.Chart({
+        // new Highcharts.Chart({
         chart: {
             renderTo: 'container',
             type: 'gauge',
