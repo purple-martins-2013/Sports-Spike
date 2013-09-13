@@ -28,7 +28,7 @@ html, body {
   color: #333;
 }
 
-h4{
+h2{
   text-align: center;
  }
 
@@ -36,26 +36,38 @@ h4{
   opacity: 0.75;
   color: #333;
   font-family: 'Jura', sans-serif;
+}
 
+.intro {
+  font-size: 110%;
+  font-family: 'Jura', sans-serif;
 }
 
 #left-panel {
   font-size: 100%;
   text-align: left;
+<<<<<<< HEAD
   }
+=======
+}
+
+#left-panel .radio-button {
+  text-align: right;
+}
+>>>>>>> de1f8771a9a8f21cb14e35ca595bfbeb1bb70595
 
 .zurb-footer-bottom {
   text-align:center;
   font-size: 80%;
   }
  
- a{
- font-family: 'Jura', sans-serif;
- color: black;
+ a {
+  font-family: 'Jura', sans-serif;
+  color: black;
  }
 
- p{
- font-family: 'Jura', sans-serif;
+ p {
+  font-family: 'Jura', sans-serif;
  }
 
  #left-panel input {
