@@ -160,7 +160,7 @@ function makeTweetGraph() {
 function makePulseChart() {
  var pulseChart = {
 
-    pulseTime: 20000,
+    pulseTime: 60000,
 
     init: function() {
       this.render();
@@ -182,7 +182,7 @@ function makePulseChart() {
 
     draw: function(data1, data2) {
       if (!this.chart) {
-        this.createChart()
+        this.createChart(data1, data2)
       } else {
         var teamOneUpdate = this.chart.series[0]
         var teamTwoUpdate = this.chart.series[1]
@@ -192,7 +192,6 @@ function makePulseChart() {
       }
     },
     createChart: function(data1, data2) {
-      console.log("we are creating a new chart")
       this.chart = new Highcharts.Chart({
         chart: {
             renderTo: 'container',
@@ -284,11 +283,11 @@ function makePulseChart() {
           }
         },
         series: [{
-            data: data1,
+            data: [data1],
             name: teamOneName,
             yAxis: 0
             }, {
-            data: data2,
+            data: [data2],
             name: teamTwoName,
             yAxis: 1
         }]

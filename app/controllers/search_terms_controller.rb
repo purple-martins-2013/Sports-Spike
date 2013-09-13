@@ -42,6 +42,6 @@ class SearchTermsController < ApplicationController
     tweets_by_team_one = team_one_data.sort_by { |d| DateTime.parse(d[0]) }
     tweets_by_team_two = team_two_data.sort_by { |d| DateTime.parse(d[0]) }
 
-    render :json => { fan_pulse_team_one: [6], fan_pulse_team_two: [4], tweets_by_team_one: tweets_by_team_one, tweets_by_team_two: tweets_by_team_two }
+    render :json => { fan_pulse_team_one: fan_pulse_team_one, fan_pulse_team_two: fan_pulse_team_two, tweets_by_team_one: tweets_by_team_one, tweets_by_team_two: tweets_by_team_two }
   end
 end
